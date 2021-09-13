@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: dfb132212d365424ca8aa29994770e33
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bienchen SAS
+  fontNames:
+  - Bienchen SAS
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a8689ff6a3bd41e44896cf3bcd8b2d30, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

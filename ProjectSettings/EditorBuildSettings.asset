@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: 8e19b03d98103e54e8df5871f7b46572
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Progreso.unity
+    guid: 415978976810a3141a4fce94d32385e8
+  - enabled: 1
+    path: Assets/Scenes/CargaMenu.unity
+    guid: b2bf652bf5f4d4c4b8322565d6f01d6c
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 15fb4faf474f3744abb8c3164421a9d3
+  - enabled: 1
+    path: Assets/Scenes/CargaProgreso.unity
+    guid: af149745ab56a554bacb826a09165f83
+  - enabled: 1
+    path: Assets/Scenes/CargaSuma.unity
+    guid: 0615d9d0e43c21b458c1cc866a49c2d2
+  - enabled: 1
+    path: Assets/Scenes/CargaLaberinto.unity
+    guid: 1bd9a79e3aac4ef488596b483b67cf22
+  - enabled: 1
+    path: Assets/Scenes/CargaLancha.unity
+    guid: c2d05a5d32678a04e824b98721f2ab83
+  - enabled: 1
+    path: Assets/Scenes/CargaTesoro.unity
+    guid: ecc00cb045fa3fd47bfc12b9e5235f79
+  - enabled: 1
+    path: Assets/Scenes/CargaDrag.unity
+    guid: b677575c69c61c842aef6a7f330950b8
+  - enabled: 1
+    path: Assets/Scenes/CargaDest.unity
+    guid: 3984299a8f21bab4ba281187147e2221
+  - enabled: 1
+    path: Assets/Scenes/CargaPatrone.unity
+    guid: e812c1dc6e0d01f48920571d5b3ae329
+  - enabled: 1
+    path: Assets/Scenes/CargaIdentificar.unity
+    guid: c10938d76297e1a4b91e28f54d2e8c51
+  - enabled: 1
+    path: Assets/Scenes/CargaReciclar.unity
+    guid: 445232208c6a623459929d7a137e16f2
+  - enabled: 1
+    path: Assets/Scenes/Actividad Lancha.unity
+    guid: 30766fb5e9770de4897d1e3b1609a3e6
+  - enabled: 1
+    path: Assets/Scenes/Actividad Laberinto.unity
+    guid: cd177b373dd1cb0448aefbdcf6fc0c2c
+  - enabled: 1
+    path: Assets/Scenes/Actividad suma.unity
+    guid: 8e1ab0ce91df7164389f0d13d5a4c454
+  - enabled: 1
+    path: Assets/Scenes/Actividad Tesoro.unity
+    guid: 7d85b8ee4bf87074c94c94d188beeafe
+  - enabled: 1
+    path: Assets/Scenes/Actividad Patrones.unity
+    guid: 7efae9b9103571c4eb1da9682d44449c
+  - enabled: 1
+    path: Assets/Scenes/Actividad Identificar.unity
+    guid: 266927030e279e74b9b03fdccb561d23
+  - enabled: 1
+    path: Assets/Scenes/Actividad Reciclar.unity
+    guid: f17556dc98489844fa22eac2826ac035
+  - enabled: 1
+    path: Assets/Scenes/Progreso.unity
+    guid: 415978976810a3141a4fce94d32385e8
+  - enabled: 1
+    path: Assets/Scenes/CargaProgreso.unity
+    guid: af149745ab56a554bacb826a09165f83
+  - enabled: 1
+    path: Assets/Scenes/Actividad Drag and Drop.unity
+    guid: 4b0b1975c9f3ec04e8ddeb2509e63304
+  - enabled: 1
+    path: Assets/Scenes/Actividad Destreza.unity
+    guid: aa23e754be510814594a2bedc43a1270
+  m_configObjects: {}
