@@ -1,18 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class BasureroClasidicar : MonoBehaviour
 {
     public GameObject PanelCorrecciones;
     public GameObject TextoFelicitaciones;
     public GameObject TextoCorrecciones;
-
+    public int periodito = 202102;
+    public int elementito;
+    public static int correctita;
+    public static float ejesitox;
+    public static float ejesitoy;
+    public static float ejesitoz;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,10 +27,89 @@ public class BasureroClasidicar : MonoBehaviour
     {
         
     }
+    public IEnumerator PostAdd(Respuesta respueston)
+    {
+        string urlAPI = "http://localhost:3002/api/alumno_respuesta/add";
+        var jsonData = JsonUtility.ToJson(respueston);
+        //Debug.Log(jsonData);
+
+        using (UnityWebRequest www = UnityWebRequest.Post(urlAPI, jsonData))
+        {
+            www.SetRequestHeader("content-type", "application/json");
+            www.uploadHandler.contentType = "application/json";
+            www.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(jsonData));
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError)
+            {
+                Debug.Log(www.error);
+                Debug.Log("Error");
+            }
+            else
+            {
+                if (www.isDone)
+                {
+                    var result = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
+                    if (result != null)
+                    {
+                        //var id_txa = JsonUtility.FromJson<String>(result);
+                        //Debug.Log(id_txa);
+                    }
+                }
+            }
+        }
+    }
+
+    public void SetElementoBasurero(string elementoide){
+        elementito = int.Parse(elementoide);
+        ejesitox = gameObject.transform.position.x;
+        ejesitoy = gameObject.transform.position.y;
+        ejesitoz = gameObject.transform.position.z;
+    }
+
+    public void RegistraBasuraCorrecta(){
+        Respuesta RespuestaBasura;
+        RespuestaBasura = new Respuesta();
+        RespuestaBasura.id_per = periodito;
+        RespuestaBasura.id_user = int.Parse(Conexiones.id_user);
+        RespuestaBasura.id_reim = 500;
+        RespuestaBasura.id_actividad = 3009;
+        RespuestaBasura.id_elemento = elementito;
+        DateTime ahora = DateTime.Now;
+        RespuestaBasura.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
+        RespuestaBasura.Eje_X = ejesitox;
+        RespuestaBasura.Eje_Y = ejesitoy;
+        RespuestaBasura.Eje_Z = ejesitoz;
+        RespuestaBasura.correcta = 1;
+        RespuestaBasura.resultado = "Respuesta Correcta";
+        RespuestaBasura.Tipo_Registro = 0;
+        StartCoroutine(PostAdd(RespuestaBasura));
+    }
+
+    public void RegistraBasuraIncorrecta(){
+        Respuesta RespuestaBasura;
+        RespuestaBasura = new Respuesta();
+        RespuestaBasura.id_per = periodito;
+        RespuestaBasura.id_user = int.Parse(Conexiones.id_user);
+        RespuestaBasura.id_reim = 500;
+        RespuestaBasura.id_actividad = 3009;
+        RespuestaBasura.id_elemento = elementito;
+        DateTime ahora = DateTime.Now;
+        RespuestaBasura.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
+        RespuestaBasura.Eje_X = ejesitox;
+        RespuestaBasura.Eje_Y = ejesitoy;
+        RespuestaBasura.Eje_Z = ejesitoz;
+        RespuestaBasura.correcta = 0;
+        RespuestaBasura.resultado = "Respuesta Incorrecta";
+        RespuestaBasura.Tipo_Registro = 0;
+        StartCoroutine(PostAdd(RespuestaBasura));
+    }
+
     public void Verificar(){
         Debug.Log(this.name + ReciclarDesaparecer.TipoBasura);
         if (this.name == "BasureroPapel" & ReciclarDesaparecer.TipoBasura == "Papel"){
-            Debug.Log("BasureroPapel");
+            RegistraBasuraCorrecta();
+            Debug.Log("Registrado en BD como 3086");
             TextoFelicitaciones.GetComponent<Text>().text = "Bien hecho! + 100 Puntos!";
             TextoCorrecciones.GetComponent<Text>().text = "El papel va en el basurero azul!";
             PanelCorrecciones.SetActive(true);
@@ -32,7 +118,8 @@ public class BasureroClasidicar : MonoBehaviour
             GameObject.Find("BasureroVidrio").SetActive(false);
         }
         else if (this.name == "BasureroPlastico" & (ReciclarDesaparecer.TipoBasura == "Plastico" || ReciclarDesaparecer.TipoBasura == "Lata")){
-            Debug.Log("BasureroPlastico");
+            RegistraBasuraCorrecta();
+            Debug.Log("Registrado en BD como 3087");
             TextoFelicitaciones.GetComponent<Text>().text = "Bien hecho! + 100 Puntos!";
             TextoCorrecciones.GetComponent<Text>().text = "El plastico y lata van en el basurero amarillo!";
             PanelCorrecciones.SetActive(true);
@@ -41,7 +128,8 @@ public class BasureroClasidicar : MonoBehaviour
             GameObject.Find("BasureroVidrio").SetActive(false);
         }
         else if (this.name == "BasureroVidrio" & ReciclarDesaparecer.TipoBasura == "Vidrio"){
-            Debug.Log("BasureroVidrio");
+            RegistraBasuraCorrecta();
+            Debug.Log("Registrado en BD como 3088");
             TextoFelicitaciones.GetComponent<Text>().text = "Bien hecho! + 100 Puntos!";
             TextoCorrecciones.GetComponent<Text>().text = "El vidrio va en el basurero verde!";
             PanelCorrecciones.SetActive(true);
@@ -51,7 +139,8 @@ public class BasureroClasidicar : MonoBehaviour
         }
         else{
             if (ReciclarDesaparecer.TipoBasura == "Papel"){
-                Debug.Log("La basura de papel va en el basurero azul!");
+                RegistraBasuraIncorrecta();
+                Debug.Log("Registrado en BD como 3086");
                 TextoFelicitaciones.GetComponent<Text>().text = "Sigue intentando!";
                 TextoCorrecciones.GetComponent<Text>().text = "La basura de papel va en el basurero azul!";
                 PanelCorrecciones.SetActive(true);
@@ -59,7 +148,8 @@ public class BasureroClasidicar : MonoBehaviour
                 GameObject.Find("BasureroPlastico").SetActive(false);
                 GameObject.Find("BasureroVidrio").SetActive(false);
             }else if (ReciclarDesaparecer.TipoBasura == "Plastico"){
-                Debug.Log("Los envases plasticos van en el basurero amarillo");
+                RegistraBasuraIncorrecta();
+                Debug.Log("Registrado en BD como 3087");
                 TextoFelicitaciones.GetComponent<Text>().text = "Sigue intentando!";
                 TextoCorrecciones.GetComponent<Text>().text = "El plasticos va en el basurero amarillo!";
                 PanelCorrecciones.SetActive(true);
@@ -67,7 +157,8 @@ public class BasureroClasidicar : MonoBehaviour
                 GameObject.Find("BasureroPlastico").SetActive(false);
                 GameObject.Find("BasureroVidrio").SetActive(false);
             }else if (ReciclarDesaparecer.TipoBasura == "Lata"){
-                Debug.Log("Las latas van en el mismo basurero que el plastico, el amarillo");
+                RegistraBasuraIncorrecta();
+                Debug.Log("Registrado en BD como 3087");
                 TextoFelicitaciones.GetComponent<Text>().text = "Sigue intentando!";
                 TextoCorrecciones.GetComponent<Text>().text = "Las latas como el plastico, van en el amarillo!";
                 PanelCorrecciones.SetActive(true);
@@ -75,7 +166,8 @@ public class BasureroClasidicar : MonoBehaviour
                 GameObject.Find("BasureroPlastico").SetActive(false);
                 GameObject.Find("BasureroVidrio").SetActive(false);
             }else if (ReciclarDesaparecer.TipoBasura == "Vidrio"){
-                Debug.Log("El vidrio va en el basurero verde");
+                RegistraBasuraIncorrecta();
+                Debug.Log("Registrado en BD como 3088");
                 TextoFelicitaciones.GetComponent<Text>().text = "Sigue intentando!";
                 TextoCorrecciones.GetComponent<Text>().text = "El vidrio va en el basurero verde!";
                 PanelCorrecciones.SetActive(true);

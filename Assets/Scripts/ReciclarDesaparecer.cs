@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class ReciclarDesaparecer : MonoBehaviour
 {
@@ -8,9 +10,13 @@ public class ReciclarDesaparecer : MonoBehaviour
     public GameObject PanelCalificar;
     public GameObject[] Basura;
     public int i;
+    public int elementobasura;
+    public int periodito = 202102;
     private int x;
-    private float positiony;
     public static string TipoBasura = "";
+    private float ejesitox;
+    private float ejesitoz;
+    private float ejesitoy;
     // private int x = 1;
     // Start is called before the first frame update
     void Start()
@@ -24,18 +30,74 @@ public class ReciclarDesaparecer : MonoBehaviour
         //Debug.Log(this.GetComponent<Transform>().position.y);
         if (this.GetComponent<Transform>().position.y >= 8.47 && altura == false){
             Debug.Log(this.name + " se va a borraaaar");
+            ejesitox = gameObject.transform.position.x;
+            ejesitoy = gameObject.transform.position.y;
+            ejesitoz = gameObject.transform.position.z;
+            RegistraBasuraPescada();
             MostrarPanelPregunta();
             // this.gameObject.SetActive(true);
             transform.position = new Vector3(2, 5, 60);
             Debug.Log(transform.position.x);
             Debug.Log(transform.position.y);
             TipoBasura = this.tag;
-            Debug.Log(TipoBasura);
+            // Debug.Log(TipoBasura);
             // transform.localScale += new Vector3(5f, 5f, 0f);
             // Destroy(this.gameObject);
             altura = true;
             
         }
+    }
+
+    public IEnumerator PostAdd(Respuesta respueston)
+    {
+        string urlAPI = "http://localhost:3002/api/alumno_respuesta/add";
+        var jsonData = JsonUtility.ToJson(respueston);
+        //Debug.Log(jsonData);
+
+        using (UnityWebRequest www = UnityWebRequest.Post(urlAPI, jsonData))
+        {
+            www.SetRequestHeader("content-type", "application/json");
+            www.uploadHandler.contentType = "application/json";
+            www.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(jsonData));
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError)
+            {
+                Debug.Log(www.error);
+                Debug.Log("Error");
+            }
+            else
+            {
+                if (www.isDone)
+                {
+                    var result = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
+                    if (result != null)
+                    {
+                        //var id_txa = JsonUtility.FromJson<String>(result);
+                        //Debug.Log(id_txa);
+                    }
+                }
+            }
+        }
+    }
+
+    public void RegistraBasuraPescada(){
+        Respuesta BasuraPescada;
+        BasuraPescada = new Respuesta();
+        BasuraPescada.id_per = periodito;
+        BasuraPescada.id_user = int.Parse(Conexiones.id_user);
+        BasuraPescada.id_reim = 500;
+        BasuraPescada.id_actividad = 3009;
+        BasuraPescada.id_elemento = elementobasura;
+        DateTime ahora = DateTime.Now;
+        BasuraPescada.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
+        BasuraPescada.Eje_X = ejesitox;
+        BasuraPescada.Eje_Y = ejesitoy;
+        BasuraPescada.Eje_Z = ejesitoz;
+        BasuraPescada.correcta = 2;
+        BasuraPescada.resultado = "Objeto Colisionado";
+        BasuraPescada.Tipo_Registro = 0;
+        StartCoroutine(PostAdd(BasuraPescada));
     }
 
     public void MostrarPanelPregunta(){

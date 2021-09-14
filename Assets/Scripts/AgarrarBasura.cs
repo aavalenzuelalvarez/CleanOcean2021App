@@ -45,7 +45,7 @@ public class AgarrarBasura : MonoBehaviour
         fj = this.gameObject.AddComponent<FixedJoint>();
         fj.connectedBody = col.collider.GetComponent<Rigidbody>();
         // col.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-        Debug.Log(col.collider.name);
+        Debug.Log(col.collider.tag);
         GanchoMovimiento.moveDown = false;
     }
 }
