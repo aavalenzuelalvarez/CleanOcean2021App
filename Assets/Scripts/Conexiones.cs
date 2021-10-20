@@ -21,6 +21,7 @@ public class Conexiones : MonoBehaviour
     public static String sesion_id;
     public static String id_actividad="0";
     public static String id_elemento = "0";
+    public static String nickname_user = "JugadorPlayer";
     public static int posx, posy;
     public int secondsToCount=60;
     public float secondsCounter = 0;

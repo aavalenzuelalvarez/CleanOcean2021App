@@ -61,6 +61,7 @@ public class Login : MonoBehaviour
         Usuario usuario;
         usuario = new Usuario();
         usuario.loginame = userInput.GetComponent<InputField>().text;
+        Conexiones.nickname_user = usuario.loginame;
         usuario.password = passwordInput.GetComponent<InputField>().text;
         StartCoroutine(Post(usuario));
     }

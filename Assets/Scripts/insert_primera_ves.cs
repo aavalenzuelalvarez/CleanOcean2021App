@@ -163,24 +163,15 @@ public class insert_primera_ves : MonoBehaviour
     }
     public void primer_insert()
     {
-        // insertElement(100, 600233);
+        insertElement(0, 3012);
         int var = 3021;
-        for (int x = 0; x < 20; x++)
+        for (int x = 0; x < 18; x++)
         {
 
             insertElement(0, var);
             var = var + 1;
         }
-
-        var = 600072;
-        for (int x = 0; x < 20; x++)
-        {
-
-            insertElement(0, var);
-            var = var + 1;
-            //Debug.Log(var);
-        }
-        insertElement(0, 600235);
+        insertElement(0, 600235); 
         //insertElement(100,600232); se elimina agua
     }
 }

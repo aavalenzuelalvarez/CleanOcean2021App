@@ -8,13 +8,23 @@ using UnityEngine.UI;
 public class UlearnCoins : MonoBehaviour
 {
     int ulearnCoins_obtenidos;
-    
 
+    //public GameObject CargarNivel;
+    //public CargadorNivel ara = new CargadorNivel();
+    // public CargadorNivel cargarNivel = new CargadorNivel();
+
+    public GameObject obj;
+    
+    void awake()
+    {
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
         //insertElement(0,600235);
         get_UlearnCoins();
+        
     }
 
     // Update is called once per frame
@@ -22,17 +32,40 @@ public class UlearnCoins : MonoBehaviour
     {
         
     }
+    public void ObtenerAnimal()
+    {
+        if(ulearnCoins_obtenidos - 10 < 0)
+        {
+            obj.SetActive(true);
+            Debug.Log("No tienes Suficientes puntos");
+        }else
+        {
+            ulearnCoins_obtenidos = ulearnCoins_obtenidos - 10;
+            insertElement(ulearnCoins_obtenidos,600235);
+            // cargarNivel.CargarNivel(3);
+            
+        }
+    }
 
     public void get_UlearnCoins()
     {
-        StartCoroutine(Get(int.Parse(Conexiones.id_user), 600235,"get_cantidad"));
+        StartCoroutine(Get(User.usuarios_id, 600235,"get_cantidad"));
+        
     }
 
     public void Ganar_UlearnCoins(int coins_ganadas)
     {
         ulearnCoins_obtenidos = ulearnCoins_obtenidos + coins_ganadas;
         insertElement(ulearnCoins_obtenidos,600235);
-        gameObject.GetComponent<Text>().text = ulearnCoins_obtenidos + "\nUlearnCoins";
+        gameObject.GetComponent<Text>().text = ulearnCoins_obtenidos + "" ;
+        Debug.Log(ulearnCoins_obtenidos + " UlearnCoins");
+    }
+    public void Restar_UlearnCoins(int coins_ganadas)
+    {
+        ulearnCoins_obtenidos = ulearnCoins_obtenidos - coins_ganadas;
+        insertElement(ulearnCoins_obtenidos,600235);
+        gameObject.GetComponent<Text>().text = ulearnCoins_obtenidos + "";
+        Debug.Log(ulearnCoins_obtenidos + " UlearnCoins");
     }
     public IEnumerator Get(int id_usuario, int id_elemento, string extend)
     {
@@ -40,7 +73,9 @@ public class UlearnCoins : MonoBehaviour
         objeto.usuario_id = id_usuario;
         objeto.id_elemento = id_elemento;
 
-        string urlAPI = "http://localhost:3002/api/Inventario_reim/" + extend;
+        string urlAPI = cambiarApiServidor.URL + "/inventario_reim/" + extend;
+        //URL="https://7tv5uzrpoj.execute-api.sa-east-1.amazonaws.com/prod/api";\
+        //cambiarApiServidor.URL + "http://localhost:3002/api/inventario_reim/"
 
         var jsonData = JsonUtility.ToJson(objeto);
         //Debug.Log(jsonData);
@@ -65,7 +100,8 @@ public class UlearnCoins : MonoBehaviour
                     {
                         var StockNotJson = JsonUtility.FromJson<get_cantidad>(result);
                         ulearnCoins_obtenidos = StockNotJson.cantidad;
-                        gameObject.GetComponent<Text>().text = ulearnCoins_obtenidos + "\nUlearnCoins";
+                        Debug.Log(ulearnCoins_obtenidos + "UlearnCoins");
+                        gameObject.GetComponent<Text>().text = ulearnCoins_obtenidos + "";
 
                     }
 

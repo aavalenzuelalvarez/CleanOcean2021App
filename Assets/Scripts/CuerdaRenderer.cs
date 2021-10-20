@@ -32,7 +32,7 @@ public class CuerdaRenderer : MonoBehaviour{
         if(lineRenderer.enabled){
             Vector3 temp = startPosition.position;
             temp.z = 89.8f;
-            temp.x = 2.34f;
+            // temp.x = 2.34f;
             temp.y = 24.08f;
             startPosition.position = temp;
             temp = endPosition;
@@ -41,11 +41,5 @@ public class CuerdaRenderer : MonoBehaviour{
             lineRenderer.SetPosition(0, startPosition.position);
             lineRenderer.SetPosition(1, endPosition);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

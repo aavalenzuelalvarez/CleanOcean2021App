@@ -93,7 +93,7 @@ public class AsignaReimAlumno : MonoBehaviour {
 
     void Start()
     {
-        if(var ==0 && SceneManager.GetActiveScene().buildIndex ==2){
+        if(var ==0 && SceneManager.GetActiveScene().buildIndex ==3){
             InsertInicio();
             
         }

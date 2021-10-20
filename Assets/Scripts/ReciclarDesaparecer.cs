@@ -28,7 +28,7 @@ public class ReciclarDesaparecer : MonoBehaviour
     void Update()
     {
         //Debug.Log(this.GetComponent<Transform>().position.y);
-        if (this.GetComponent<Transform>().position.y >= 8.47 && altura == false){
+        if (this.GetComponent<Transform>().position.y >= 7.8 && altura == false){
             Debug.Log(this.name + " se va a borraaaar");
             ejesitox = gameObject.transform.position.x;
             ejesitoy = gameObject.transform.position.y;
@@ -36,7 +36,7 @@ public class ReciclarDesaparecer : MonoBehaviour
             RegistraBasuraPescada();
             MostrarPanelPregunta();
             // this.gameObject.SetActive(true);
-            transform.position = new Vector3(2, 5, 60);
+            transform.position = new Vector3(2, 8, 60);
             Debug.Log(transform.position.x);
             Debug.Log(transform.position.y);
             TipoBasura = this.tag;

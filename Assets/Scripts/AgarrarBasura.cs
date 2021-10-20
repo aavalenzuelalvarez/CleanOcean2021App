@@ -47,5 +47,6 @@ public class AgarrarBasura : MonoBehaviour
         // col.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         Debug.Log(col.collider.tag);
         GanchoMovimiento.moveDown = false;
+        GanchoMovimientoOnline.moveDownOnline = false;
     }
 }

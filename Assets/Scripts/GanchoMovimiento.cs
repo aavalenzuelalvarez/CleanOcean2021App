@@ -35,9 +35,9 @@ public class GanchoMovimiento : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        Rotate();
         // GetInput();
         MoveRope();
+        Rotate();
     }
     
     void Rotate(){
@@ -56,7 +56,8 @@ public class GanchoMovimiento : MonoBehaviour
         }
     }
     public void GetInput(){
-        if(canRotate){
+        canRotate = false;
+        if(!canRotate){
             canRotate = false;
             moveDown = true;
         }
@@ -68,6 +69,7 @@ public class GanchoMovimiento : MonoBehaviour
         // }
     }
     void MoveRope(){
+        ropeRenderer.RenderLine(transform.position, true);
         if (canRotate)
             return;
         if (!canRotate){
@@ -88,7 +90,8 @@ public class GanchoMovimiento : MonoBehaviour
                 //reset move speed
                 move_Speed = initial_Move_Speed;
             }
-            ropeRenderer.RenderLine(transform.position, true);
+            
         }
+        
     }
 }
