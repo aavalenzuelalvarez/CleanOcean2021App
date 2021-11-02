@@ -119,7 +119,7 @@ public static class SystemSave{
     }
 
     public static IEnumerator addtiempoxactividad(Tiempoxactividad data){
-        string urlAPI = "http://localhost:3002/api/tiempoxactividad/add";
+        string urlAPI = cambiarApiServidor.URL + "/alumno_respuesta/add";//"http://localhost:3002/api/tiempoxactividad/add";
         var jsonData = JsonUtility.ToJson(data);
         Debug.Log("No entra a absolutamente nada jejejejeje");
         using (UnityWebRequest www = UnityWebRequest.Post(urlAPI, jsonData)){
@@ -159,7 +159,7 @@ public static class SystemSave{
     }
 
     public static IEnumerator updatetiempoxactividad(Tiempoxactividad data){
-        string urlAPI = "http://localhost:3002/api/tiempoxactividad/update/" + data.id_tiempoactividad.ToString();
+        string urlAPI = cambiarApiServidor.URL + "/tiempoxactividad/update/" + data.id_tiempoactividad.ToString();//"http://localhost:3002/api/tiempoxactividad/update/" + data.id_tiempoactividad.ToString();
         var jsonData = JsonUtility.ToJson(data);
 
         using (UnityWebRequest www = UnityWebRequest.Post(urlAPI, jsonData)){
@@ -191,7 +191,7 @@ public static class SystemSave{
     }
 
     public static IEnumerator put_asigna_reim_alumno(Asigna_reim_alumno data){
-        string urlAPI = "http://localhost:3002/api/asigna_reim_alumno/add";
+        string urlAPI = cambiarApiServidor.URL + "/asigna_reim_alumno/add";//"http://localhost:3002/api/asigna_reim_alumno/add";
         var jsonData = JsonUtility.ToJson(data);
 
         using (UnityWebRequest www = UnityWebRequest.Post(urlAPI, jsonData)){

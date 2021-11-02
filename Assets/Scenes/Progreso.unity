@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34695184, g: 0.4252664, b: 0.5953871, a: 1}
+  m_IndirectSpecularColor: {r: 0.34623188, g: 0.42273313, b: 0.59576964, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -608,7 +608,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38324620}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f455913f59558845bbea8d7e2e39243, type: 3}
   m_Name: 
@@ -625,7 +625,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &46080737 stripped
 Transform:
@@ -15096,49 +15096,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 328947647}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1490330160
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1490330162}
-  - component: {fileID: 1490330161}
-  m_Layer: 0
-  m_Name: AsignaReimAlumno
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1490330161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490330160}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 301fdfd2c10f7e94883f489a7ba33e94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1490330162
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490330160}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.179025, y: -74.78135, z: 642.9847}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1502004506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1675157032881787914, guid: dec5a6c0d7ba57549892fb0681b7966e,
@@ -24623,6 +24580,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1013292221726170162, guid: b5840be871c512544b6130f4a645cb03,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4627155488266477381, guid: b5840be871c512544b6130f4a645cb03,
         type: 3}
       propertyPath: m_RootOrder
@@ -24676,11 +24638,6 @@ PrefabInstance:
     - target: {fileID: 4627155488266477381, guid: b5840be871c512544b6130f4a645cb03,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4627155488266477382, guid: b5840be871c512544b6130f4a645cb03,
-        type: 3}
-      propertyPath: contadoranimales
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4627155488266477382, guid: b5840be871c512544b6130f4a645cb03,
@@ -24787,11 +24744,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Animales
-      objectReference: {fileID: 0}
-    - target: {fileID: 4627155488266477383, guid: b5840be871c512544b6130f4a645cb03,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5840be871c512544b6130f4a645cb03, type: 3}

@@ -3,35 +3,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-
-[Serializable]
-public class Respuesta
+using UnityEngine.Events;
+public class AlumnoRespLabBasura : MonoBehaviour
 {
-    public int id_per;
-    public int id_user;
-    public int id_reim;
-    public int id_actividad;
-    public int id_elemento;
-    public string datetime_touch;
-    public float Eje_X;
-    public float Eje_Y;
-    public float Eje_Z;
-    public int correcta;
-    public string resultado;
-    public int Tipo_Registro;
-}
-
-public class AlumnoRespuestaActividad : MonoBehaviour
-{
+    private GameObject Objeto;
     public int periodito = 202102;
-    public static int elementito;
-    public int actividadsita;
-    public static int correctita;
-    public static float ejesitox;
-    public static float ejesitoy;
-    public static float ejesitoz;
+    private int elementito;
+    private int actividadsita;
+    private int correctita;
+    private float ejesitox;
+    private float ejesitoy;
+    private float ejesitoz;
     // public GameObject prueba;
 
+    
+
+
+
+    void Start()
+    {
+        Objeto = this.gameObject;
+        periodito = 202102;
+        actividadsita = 3003;
+        // Debug.Log(this.gameObject.GetComponent<testbutton>());
+        // this.gameObject.GetComponent<AlumnoRespLabBasura>().unEventoLab.AddListener(delegate { test(this.gameObject.name); });
+        // unEventoLab.AddListener(delegate{test();});
+    }
+    
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    private void OnMouseDown(){
+        Debug.Log(Objeto);
+        if (Objeto.name == "Basura Vaso"){
+            elementito = 3040;
+        }else if(Objeto.name == "Basura Bolsa"){
+            elementito = 3041;
+        }else if(Objeto.name == "Basura Leche"){
+            elementito = 3095;
+        }else if(Objeto.name == "Basura Botella Azul"){
+            elementito = 3095;
+        }else if(Objeto.name == "Basura Barril"){
+            elementito = 3019;
+        }
+        ejesitox = Objeto.transform.position.x;
+        ejesitoy = Objeto.transform.position.y;
+        ejesitoz = Objeto.transform.position.z;
+        Debug.Log("ID DE ESTE OBJETO : " + elementito +" : " + ejesitox + " " + ejesitoy + " " + ejesitoz);
+
+        Touchsito();
+    }
     public IEnumerator PostAdd(Respuesta respueston)
     {
         string urlAPI = cambiarApiServidor.URL + "/alumno_respuesta/add"; //"http://localhost:3002/api/alumno_respuesta/add";
@@ -65,16 +89,6 @@ public class AlumnoRespuestaActividad : MonoBehaviour
         }
     }
 
-    public void SetElemento(string elementoide){
-        elementito = int.Parse(elementoide);
-        ejesitox = gameObject.transform.position.x;
-        ejesitoy = gameObject.transform.position.y;
-        ejesitoz = gameObject.transform.position.z;
-    }
-
-    public void SetCorrecto(string correctoide){
-        correctita = int.Parse(correctoide);
-    }
     public void Touchsito()
     {
         Respuesta respuestini;
@@ -89,39 +103,11 @@ public class AlumnoRespuestaActividad : MonoBehaviour
         respuestini.Eje_X = ejesitox;
         respuestini.Eje_Y = ejesitoy;
         respuestini.Eje_Z = ejesitoz;
-        respuestini.correcta = correctita;
+        respuestini.correcta = 2;
         respuestini.resultado = "No Aplica";
         respuestini.Tipo_Registro = 0;
         StartCoroutine(PostAdd(respuestini));
     }
 
-    // public void SetCorrectoPanel(){
-    //     Respuesta respuestacorrecta;
-    //     respuestacorrecta = new Respuesta();
-    //     respuestacorrecta.id_per = periodito;
-    //     respuestacorrecta.id_user = int.Parse(Conexiones.id_user);
-    //     respuestacorrecta.id_reim = 500;
-    //     respuestacorrecta.id_actividad = 3007;
-    //     respuestacorrecta.id_elemento = 3059;
-    //     DateTime ahora = DateTime.Now;
-    //     respuestacorrecta.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
-    //     respuestacorrecta.Eje_X = gameObject.transform.position.x;
-    //     respuestacorrecta.Eje_Y = gameObject.transform.position.y;
-    //     respuestacorrecta.Eje_Z = 0;
-    //     respuestacorrecta.correcta = 1;
-    //     respuestacorrecta.resultado = "Correcto";
-    //     respuestacorrecta.Tipo_Registro = 0;
-    //     StartCoroutine(PostAdd(respuestacorrecta));
-    // }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

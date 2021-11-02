@@ -33,7 +33,7 @@ public class insert_primera_ves : MonoBehaviour
 
 
 
-        string urlAPI = "http://localhost:3002/api/asigna_reim_alumno/get_ultima_conexion";
+        string urlAPI = cambiarApiServidor.URL + "/asigna_reim_alumno/get_ultima_conexion"; //"http://localhost:3002/api/asigna_reim_alumno/get_ultima_conexion";
 
         var jsonData = JsonUtility.ToJson(objeto);
         Debug.Log(jsonData);
@@ -51,12 +51,14 @@ public class insert_primera_ves : MonoBehaviour
             else
             {
                 var result = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
+                Debug.Log(result);
 
                 
                 if (www.isDone)
                 {
                     if (result != "null")
                     {
+                        primer_sesion();
                         var ultimaconexion = JsonUtility.FromJson<get_ultima_conexion>(result);
                         //ultimaconexion = ultimaconexion.ToString;
                         //string [] a = ultimaconexion.datetime_termino.Split('T');
@@ -113,7 +115,7 @@ public class insert_primera_ves : MonoBehaviour
     }
     public IEnumerator PostInsert_Element(inventario_reim_class a, string extend)
     {
-        string urlAPI = "http://localhost:3002/api/Inventario_reim/" + extend;
+        string urlAPI = cambiarApiServidor.URL + "/Inventario_reim/" + extend; //"http://localhost:3002/api/Inventario_reim/" + extend;
         //Debug.Log("urlPI: "+urlAPI);
 
         var jsonData = JsonUtility.ToJson(a);
@@ -164,13 +166,15 @@ public class insert_primera_ves : MonoBehaviour
     public void primer_insert()
     {
         insertElement(0, 3012);
+
         int var = 3021;
-        for (int x = 0; x < 18; x++)
+        for (int x = 0; x < 19; x++)
         {
 
             insertElement(0, var);
             var = var + 1;
         }
+
         insertElement(0, 600235); 
         //insertElement(100,600232); se elimina agua
     }

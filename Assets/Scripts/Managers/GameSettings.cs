@@ -14,8 +14,8 @@ public class GameSettings : ScriptableObject
     {
         get
         {
-            int value = Random.Range(0, 9999);
-            return Conexiones.nickname_user + value.ToString();
+            // int value = Random.Range(0, 9999);
+            return Conexiones.nickname_user;
         }
     }
 }

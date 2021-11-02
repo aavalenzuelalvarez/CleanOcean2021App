@@ -2498,8 +2498,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32.7, y: -239.31}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -32.7, y: -250.48}
+  m_SizeDelta: {x: 0.784, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &655009000
 BoxCollider:
@@ -2512,8 +2512,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.88042593, y: 0.9999985, z: 1}
+  m_Center: {x: 0.05978707, y: 1.5227056e-16, z: 0}
 --- !u!23 &655009001
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4660,6 +4660,7 @@ MonoBehaviour:
   PanelCorrecciones: {fileID: 313313284}
   TextoFelicitaciones: {fileID: 2112579734}
   TextoCorrecciones: {fileID: 956071202}
+  ulearnCoins: {fileID: 0}
   periodito: 202102
   elementito: 3088
 --- !u!1001 &1297948991
@@ -4892,6 +4893,7 @@ MonoBehaviour:
   PanelCorrecciones: {fileID: 313313284}
   TextoFelicitaciones: {fileID: 2112579734}
   TextoCorrecciones: {fileID: 956071202}
+  ulearnCoins: {fileID: 0}
   periodito: 202102
   elementito: 3087
 --- !u!1 &1421142546 stripped
@@ -8036,6 +8038,7 @@ MonoBehaviour:
   PanelCorrecciones: {fileID: 313313284}
   TextoFelicitaciones: {fileID: 2112579734}
   TextoCorrecciones: {fileID: 956071202}
+  ulearnCoins: {fileID: 0}
   periodito: 202102
   elementito: 3086
 --- !u!1 &2112579734
@@ -8474,12 +8477,12 @@ PrefabInstance:
     - target: {fileID: 2669188424742895174, guid: 7085c3e9fc3f8094a92f15795dd6bc0e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 2669188424742895174, guid: 7085c3e9fc3f8094a92f15795dd6bc0e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 5.7
       objectReference: {fileID: 0}
     - target: {fileID: 2669188424742895174, guid: 7085c3e9fc3f8094a92f15795dd6bc0e,
         type: 3}

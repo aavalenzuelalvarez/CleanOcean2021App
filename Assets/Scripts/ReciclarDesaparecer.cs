@@ -50,7 +50,7 @@ public class ReciclarDesaparecer : MonoBehaviour
 
     public IEnumerator PostAdd(Respuesta respueston)
     {
-        string urlAPI = "http://localhost:3002/api/alumno_respuesta/add";
+        string urlAPI = cambiarApiServidor.URL + "/alumno_respuesta/add"; //"http://localhost:3002/api/alumno_respuesta/add";
         var jsonData = JsonUtility.ToJson(respueston);
         //Debug.Log(jsonData);
 

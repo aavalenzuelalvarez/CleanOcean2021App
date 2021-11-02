@@ -104,7 +104,7 @@ public class Recompensas : MonoBehaviour
                 Panel_correcto1 = Panel_correcto;
                 Panel_recompensas1 = Panel_recompensas;
                 Panel_correcto.gameObject.SetActive(true);
-                Invoke("MostrarRecompensa", 3f);
+                // Invoke("MostrarRecompensa", 3f);
                 //a.transform.position = camerapos;
                 //if (contadoranimales == 4) //pulpo
                 //{
@@ -166,10 +166,10 @@ public class Recompensas : MonoBehaviour
         {
             Slider.SetActive(false);
         }
-        for (x = contadoranimales - 1; x >= 0; x--)
-        {
-            Animalaux[x].SetActive(true);
-        }
+        // for (x = contadoranimales - 1; x >= 0; x--)
+        // {
+        //     Animalaux[x].SetActive(true);
+        // }
         for (x = contadoranimales; x <= 19; x++)
         {
             Basura[x].SetActive(true);

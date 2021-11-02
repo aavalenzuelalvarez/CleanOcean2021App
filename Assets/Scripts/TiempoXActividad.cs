@@ -26,7 +26,7 @@ public class TiempoXActividad : MonoBehaviour
 
     public IEnumerator PostAdd(Tiempo tiempito)
     {
-        string urlAPI = "http://localhost:3002/api/tiempoxactividad/add";
+        string urlAPI = cambiarApiServidor.URL + "/tiempoxactividad/add"; //"http://localhost:3002/api/tiempoxactividad/add";
         var jsonData = JsonUtility.ToJson(tiempito);
         //Debug.Log(jsonData);
 
@@ -76,7 +76,7 @@ public class TiempoXActividad : MonoBehaviour
 
     public IEnumerator PostEnd(Tiempo tiempito)
     {
-        string urlAPI = "http://localhost:3002/api/tiempoxactividad/update/" + tiempito.id_tiempoactividad.ToString();
+        string urlAPI = cambiarApiServidor.URL + "/tiempoxactividad/update/" + tiempito.id_tiempoactividad.ToString();//"http://localhost:3002/api/tiempoxactividad/update/" + tiempito.id_tiempoactividad.ToString();
         var jsonData = JsonUtility.ToJson(tiempito);
         //Debug.Log(jsonData);
 
@@ -122,7 +122,7 @@ public class TiempoXActividad : MonoBehaviour
 
     public IEnumerator PostInt(Tiempo tiempito)
     {
-        string urlAPI = "http://localhost:3002/api/tiempoxactividad/update/" + tiempito.id_tiempoactividad.ToString();
+        string urlAPI = cambiarApiServidor.URL + "/tiempoxactividad/update/" + tiempito.id_tiempoactividad.ToString();//"http://localhost:3002/api/tiempoxactividad/update/" + tiempito.id_tiempoactividad.ToString();
         var jsonData = JsonUtility.ToJson(tiempito);
         //Debug.Log(jsonData);
 

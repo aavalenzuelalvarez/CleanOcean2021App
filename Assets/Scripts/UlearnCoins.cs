@@ -49,8 +49,7 @@ public class UlearnCoins : MonoBehaviour
 
     public void get_UlearnCoins()
     {
-        StartCoroutine(Get(User.usuarios_id, 600235,"get_cantidad"));
-        
+        StartCoroutine(Get(int.Parse(Conexiones.id_user), 600235,"get_cantidad"));
     }
 
     public void Ganar_UlearnCoins(int coins_ganadas)
@@ -73,7 +72,7 @@ public class UlearnCoins : MonoBehaviour
         objeto.usuario_id = id_usuario;
         objeto.id_elemento = id_elemento;
 
-        string urlAPI = cambiarApiServidor.URL + "/inventario_reim/" + extend;
+        string urlAPI = cambiarApiServidor.URL + "/Inventario_reim/" + extend;
         //URL="https://7tv5uzrpoj.execute-api.sa-east-1.amazonaws.com/prod/api";\
         //cambiarApiServidor.URL + "http://localhost:3002/api/inventario_reim/"
 
@@ -128,7 +127,7 @@ public class UlearnCoins : MonoBehaviour
     public IEnumerator Postt(inventario_reim_class a, string extend)
     {
         //yield return new WaitForSeconds(2);
-        string urlAPI = "http://localhost:3002/api/Inventario_reim/" + extend;
+        string urlAPI = cambiarApiServidor.URL + "/Inventario_reim/" + extend; //"http://localhost:3002/api/Inventario_reim/" + extend;
         //Debug.Log("urlPI: "+urlAPI);
 
         var jsonData = JsonUtility.ToJson(a);

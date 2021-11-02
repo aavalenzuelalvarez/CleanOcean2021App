@@ -10,6 +10,7 @@ public class BasureroClasidicar : MonoBehaviour
     public GameObject PanelCorrecciones;
     public GameObject TextoFelicitaciones;
     public GameObject TextoCorrecciones;
+    public UlearnCoins ulearnCoins;
     public int periodito = 202102;
     public int elementito;
     public static int correctita;
@@ -29,7 +30,7 @@ public class BasureroClasidicar : MonoBehaviour
     }
     public IEnumerator PostAdd(Respuesta respueston)
     {
-        string urlAPI = "http://localhost:3002/api/alumno_respuesta/add";
+        string urlAPI = cambiarApiServidor.URL + "/alumno_respuesta/add"; //"http://localhost:3002/api/alumno_respuesta/add";
         var jsonData = JsonUtility.ToJson(respueston);
         //Debug.Log(jsonData);
 
@@ -113,6 +114,7 @@ public class BasureroClasidicar : MonoBehaviour
             TextoFelicitaciones.GetComponent<Text>().text = "Bien hecho! + 100 Puntos!";
             TextoCorrecciones.GetComponent<Text>().text = "El papel va en el basurero azul!";
             PanelCorrecciones.SetActive(true);
+            ulearnCoins.Ganar_UlearnCoins(100);
             GameObject.Find("BasureroPapel").SetActive(false);
             GameObject.Find("BasureroPlastico").SetActive(false);
             GameObject.Find("BasureroVidrio").SetActive(false);
@@ -123,6 +125,7 @@ public class BasureroClasidicar : MonoBehaviour
             TextoFelicitaciones.GetComponent<Text>().text = "Bien hecho! + 100 Puntos!";
             TextoCorrecciones.GetComponent<Text>().text = "El plastico y lata van en el basurero amarillo!";
             PanelCorrecciones.SetActive(true);
+            ulearnCoins.Ganar_UlearnCoins(100);
             GameObject.Find("BasureroPapel").SetActive(false);
             GameObject.Find("BasureroPlastico").SetActive(false);
             GameObject.Find("BasureroVidrio").SetActive(false);
@@ -133,6 +136,7 @@ public class BasureroClasidicar : MonoBehaviour
             TextoFelicitaciones.GetComponent<Text>().text = "Bien hecho! + 100 Puntos!";
             TextoCorrecciones.GetComponent<Text>().text = "El vidrio va en el basurero verde!";
             PanelCorrecciones.SetActive(true);
+            ulearnCoins.Ganar_UlearnCoins(100);
             GameObject.Find("BasureroPapel").SetActive(false);
             GameObject.Find("BasureroPlastico").SetActive(false);
             GameObject.Find("BasureroVidrio").SetActive(false);

@@ -18,6 +18,7 @@ public class QuizManager : MonoBehaviour
     private float ejesitox;
     private float ejesitoz;
     private float ejesitoy;
+    public UlearnCoins ulearnCoins;
 
     // Start is called before the first frame update
     private void Start()
@@ -77,7 +78,7 @@ public class QuizManager : MonoBehaviour
 
     public IEnumerator PostAdd(Respuesta respueston)
     {
-        string urlAPI = "http://localhost:3002/api/alumno_respuesta/add";
+        string urlAPI = cambiarApiServidor.URL + "/alumno_respuesta/add";//"http://localhost:3002/api/alumno_respuesta/add";
         var jsonData = JsonUtility.ToJson(respueston);
         //Debug.Log(jsonData);
 
@@ -112,6 +113,7 @@ public class QuizManager : MonoBehaviour
         if (optionButton.Option.correct){
             Debug.Log("Ta wena");
             RegistrarRespuestaCorrecta();
+            ulearnCoins.Ganar_UlearnCoins(100);
             PanelCorrecto.SetActive(true);
         }else{
             Debug.Log("Ta mala");
@@ -127,4 +129,66 @@ public class QuizManager : MonoBehaviour
         }
         NextQuestion();
     }
+
+    // public void Ganar_UlearnCoins(int coins_ganadas)
+    // {
+    //     ulearnCoins_obtenidos = ulearnCoins_obtenidos + coins_ganadas;
+    //     insertElement(ulearnCoins_obtenidos,600235);
+    //     gameObject.GetComponent<Text>().text = ulearnCoins_obtenidos + "" ;
+    //     Debug.Log(ulearnCoins_obtenidos + " UlearnCoins");
+    // }
+
+    // public void insertElement(int numero_cantidad, int id_del_elemento)
+    // {
+
+    //     inventario_reim_class ARA;
+    //     ARA = new inventario_reim_class();
+    //     ARA.sesion_id = AsignaReimAlumno.Session;
+    //     ARA.id_elemento = id_del_elemento;
+    //     ARA.cantidad = numero_cantidad;
+    //     ARA.datetime_creacion = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+    //     //Debug.Log("Date time creation =" + ARA.datetime_creacion);
+    //     StartCoroutine(Postt(ARA, "add"));
+    // }
+
+    // public IEnumerator Postt(inventario_reim_class a, string extend)
+    // {
+    //     //yield return new WaitForSeconds(2);
+    //     string urlAPI = "http://localhost:3002/api/Inventario_reim/" + extend;
+    //     //Debug.Log("urlPI: "+urlAPI);
+
+    //     var jsonData = JsonUtility.ToJson(a);
+    //     using (UnityWebRequest www = UnityWebRequest.Post(urlAPI, jsonData))
+    //     {
+    //         www.SetRequestHeader("content-type", "application/json");
+    //         www.uploadHandler.contentType = "application/json";
+    //         www.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(jsonData));
+    //         yield return www.SendWebRequest();
+
+    //         if (www.result == UnityWebRequest.Result.ConnectionError)
+    //         {
+    //             Debug.Log(www.error);
+    //             Debug.Log("error!");
+    //         }
+    //         else
+    //         {
+    //             if (www.isDone)
+    //             {
+    //                 //Debug.Log("Se actualizo correctamente"+ extend);
+    //                 var result = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
+    //                 //Debug.Log(result);
+    //                 if (result != null)
+    //                 {
+    //                     if (extend == "add")
+    //                     {
+    //                         //Debug.Log("Session: "+Session);
+    //                         //Session = result;
+    //                     }
+    //                     //var asignaRA = JsonUtility.FromJson<AsignaInicio>(result);
+                        
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 }

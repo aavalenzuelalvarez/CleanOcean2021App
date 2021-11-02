@@ -1,16 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
+using Random = UnityEngine.Random;
 
 public class ControllerTesoro : MonoBehaviour
 {
     public ShakeDemo shakedemo;
     public Button Bvolcan, Bfaro, Bcalavera, Btesoro;
-    public GameObject Panel, PanelCorrecto,camino1,camino2,camino3, PanelRecompensas;
+    public GameObject Panel, PanelCorrecto,camino1,camino2,camino3;
     public Button Instruccion;
     public int pasosrandom,aux,pasosalumno;
+    private int periodito = 202102;
+    public UlearnCoins ulearnCoins;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +38,7 @@ public class ControllerTesoro : MonoBehaviour
                 camino1.SetActive(true);
                 Bvolcan.interactable = true;
                 Bfaro.interactable = false;
+                RegistraSaltoGanador(ShakeDemo.pasos);
                 Panel.SetActive(false);
                 ShakeDemo.pasos = 0;
             }
@@ -46,6 +52,7 @@ public class ControllerTesoro : MonoBehaviour
                 aux += 1;
                 Bcalavera.interactable = true;
                 Bvolcan.interactable = false;
+                RegistraSaltoGanador(ShakeDemo.pasos);
                 Panel.SetActive(false);
                 ShakeDemo.pasos = 0;
             }
@@ -58,6 +65,7 @@ public class ControllerTesoro : MonoBehaviour
                 Btesoro.interactable = true;
                 shakedemo.ResetShakeCount();
                 camino2.SetActive(true);
+                RegistraSaltoGanador(ShakeDemo.pasos);
                 Panel.SetActive(false);
                 aux += 1;
             }
@@ -111,10 +119,63 @@ public class ControllerTesoro : MonoBehaviour
             {
                 go.SetActive(false);
             }
-            GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(PanelRecompensas, PanelCorrecto);
-            GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaCorrecto(SceneManager.GetActiveScene().name);
+            // GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(PanelRecompensas, PanelCorrecto);
+            ulearnCoins.Ganar_UlearnCoins(500);
+            PanelCorrecto.SetActive(true);
+            // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaCorrecto(SceneManager.GetActiveScene().name);
             aux +=1;
         }
     }
 
+    private IEnumerator PostAdd(Respuesta respueston)
+    {
+        string urlAPI = cambiarApiServidor.URL + "/alumno_respuesta/add"; //"http://localhost:3002/api/alumno_respuesta/add";
+        var jsonData = JsonUtility.ToJson(respueston);
+        //Debug.Log(jsonData);
+
+        using (UnityWebRequest www = UnityWebRequest.Post(urlAPI, jsonData))
+        {
+            www.SetRequestHeader("content-type", "application/json");
+            www.uploadHandler.contentType = "application/json";
+            www.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(jsonData));
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError)
+            {
+                Debug.Log(www.error);
+                Debug.Log("Error");
+            }
+            else
+            {
+                if (www.isDone)
+                {
+                    var result = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
+                    if (result != null)
+                    {
+                        //var id_txa = JsonUtility.FromJson<String>(result);
+                        //Debug.Log(id_txa);
+                    }
+                }
+            }
+        }
+    }
+
+	private void RegistraSaltoGanador(int pasos){
+        Respuesta RespuestaBasura;
+        RespuestaBasura = new Respuesta();
+        RespuestaBasura.id_per = periodito;
+        RespuestaBasura.id_user = int.Parse(Conexiones.id_user);
+        RespuestaBasura.id_reim = 500;
+        RespuestaBasura.id_actividad = 3004;
+        RespuestaBasura.id_elemento = 3096;
+        DateTime ahora = DateTime.Now;
+        RespuestaBasura.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
+        RespuestaBasura.Eje_X = 0;
+        RespuestaBasura.Eje_Y = 0;
+        RespuestaBasura.Eje_Z = 0;
+        RespuestaBasura.correcta = 1;
+        RespuestaBasura.resultado = "Primera instruccion correcta en el salto nro : " + pasos;
+        RespuestaBasura.Tipo_Registro = 0;
+        StartCoroutine(PostAdd(RespuestaBasura));
+    }
 }

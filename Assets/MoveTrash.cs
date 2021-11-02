@@ -16,7 +16,7 @@ public class MoveTrash : MonoBehaviour
     void Update()
     {
         
-        if (GetComponent<Transform>().position.z < GameObject.Find("BoatPrefab").GetComponent<Transform>().position.z-5)
+        if (this.gameObject.GetComponent<Transform>().position.z < GameObject.Find("BoatPrefab").GetComponent<Transform>().position.z-5)
         {
             x = Random.Range(-285,-163);
             if (gameObject.name == "BasuraPrefab")

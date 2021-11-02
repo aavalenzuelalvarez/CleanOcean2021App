@@ -29,11 +29,11 @@ public class AsignaReimAlumno : MonoBehaviour {
         AsignaInicio a;
         a = new AsignaInicio();
         Debug.Log("id_alumno = "+Conexiones.id_user);
-        a.sesion_id = Conexiones.id_user + "-" +600+"-"+ System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+        a.sesion_id = Conexiones.id_user + "-" +500+"-"+ System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
         Session = a.sesion_id;
         a.usuario_id = int.Parse(Conexiones.id_user);
-        a.periodo_id = 202101;
-        a.reim_id = 600;
+        a.periodo_id = 202102;
+        a.reim_id = 500;
         a.datetime_inicio = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
         a.datetime_termino = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
         StartCoroutine(Post(a, "add"));
@@ -59,7 +59,7 @@ public class AsignaReimAlumno : MonoBehaviour {
     }
 
     public IEnumerator Post(AsignaInicio a, string extend)  {
-        string urlAPI = "http://localhost:3002/api/asigna_reim_alumno/" + extend;
+        string urlAPI = cambiarApiServidor.URL + "/asigna_reim_alumno/" + extend; //"http://localhost:3002/api/asigna_reim_alumno/" + extend;
         //Debug.Log("urlPI: "+urlAPI);
 
         var jsonData = JsonUtility.ToJson(a);
@@ -93,10 +93,10 @@ public class AsignaReimAlumno : MonoBehaviour {
 
     void Start()
     {
-        if(var ==0 && SceneManager.GetActiveScene().buildIndex ==3){
-            InsertInicio();
+        // if(var ==0 && SceneManager.GetActiveScene().buildIndex ==1){
+        //     InsertInicio();
             
-        }
+        // }
         
         //if (code == 2)
         //{

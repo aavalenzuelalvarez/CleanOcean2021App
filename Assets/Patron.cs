@@ -9,9 +9,10 @@ public class Patron : MonoBehaviour
     // Start is called before the first frame update
     // AlumnoRespuestaActividad respuestacorrecta = new AlumnoRespuestaActividad();
     public GameObject[] Burbujas, Animales, Respuesta;
-    public GameObject panelcorrecto, panelincorrecto, panelrecompensa;
+    public GameObject panelcorrecto, panelincorrecto;
     public int secuencia;
     private int animal1, animal2, contador, i=0, total, aux=0;
+    public UlearnCoins ulearnCoins;
     void Start()
     {
         
@@ -294,16 +295,20 @@ public class Patron : MonoBehaviour
                     if (total == 6)
                     {
                         Hide();
-                        GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(panelrecompensa, panelcorrecto);
+                        // GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(panelrecompensa, panelcorrecto);
                         // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaCorrecto("Actividad Patrones");
                         RespuestaFinalCorrecta();
+                        ulearnCoins.Ganar_UlearnCoins(500);
+                        panelcorrecto.SetActive(true);
                     }
                     else
                     {
                         Hide();
                         // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaIncorrecto("Actividad Patrones");
-                        GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
+                        // GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
                         RespuestaFinalIncorrecta();
+                        ulearnCoins.Ganar_UlearnCoins(100);
+                        panelincorrecto.SetActive(false);
                         print("incorrecto");
                     }
                     aux++;
@@ -336,17 +341,21 @@ public class Patron : MonoBehaviour
                     if (total == 5)
                     {
                         Hide();
-                        GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(panelrecompensa, panelcorrecto);
+                        // GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(panelrecompensa, panelcorrecto);
                         // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaCorrecto("Actividad Patrones");
                         RespuestaFinalCorrecta();
+                        ulearnCoins.Ganar_UlearnCoins(500);
+                        panelcorrecto.SetActive(true);
                     }
                     else
                     {
                         Hide();
-                        GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
+                        // GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
                         print("incorrecto");
                         // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaIncorrecto("Actividad Patrones");
                         RespuestaFinalIncorrecta();
+                        ulearnCoins.Ganar_UlearnCoins(100);
+                        panelincorrecto.SetActive(false);
                     }
                     aux++;
                 }
@@ -374,16 +383,20 @@ public class Patron : MonoBehaviour
                     if (total == 4)
                     {
                         Hide();
-                        GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(panelrecompensa, panelcorrecto);
+                        // GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(panelrecompensa, panelcorrecto);
                         // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaCorrecto("Actividad Patrones");
                         RespuestaFinalCorrecta();
+                        ulearnCoins.Ganar_UlearnCoins(500);
+                        panelcorrecto.SetActive(true);
                     }
                     else
                     {
                         Hide();
                         // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaIncorrecto("Actividad Patrones");
-                        GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
+                        // GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
                         RespuestaFinalIncorrecta();
+                        ulearnCoins.Ganar_UlearnCoins(100);
+                        panelincorrecto.SetActive(false);
                         print("incorrecto");
                     }
                     aux++;
@@ -412,16 +425,20 @@ public class Patron : MonoBehaviour
                     if (total == 4)
                     {
                         Hide();
-                        GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(panelrecompensa, panelcorrecto);
+                        // GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(panelrecompensa, panelcorrecto);
                         // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaCorrecto("Actividad Patrones");
                         RespuestaFinalCorrecta();
+                        ulearnCoins.Ganar_UlearnCoins(500);
+                        panelcorrecto.SetActive(true);
                     }
                     else
                     {
                         Hide();
                         // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaIncorrecto("Actividad Patrones");
-                        GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
+                        // GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
                         RespuestaFinalIncorrecta();
+                        ulearnCoins.Ganar_UlearnCoins(100);
+                        panelincorrecto.SetActive(false);
                         print("incorrecto");
                     }
                     aux++;
@@ -454,16 +471,20 @@ public class Patron : MonoBehaviour
                     if (total == 5)
                     {
                         Hide();
-                        GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaCorrecto("Actividad Patrones");
+                        // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaCorrecto("Actividad Patrones");
                         // GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(panelrecompensa, panelcorrecto);
                         RespuestaFinalCorrecta();
+                        ulearnCoins.Ganar_UlearnCoins(500);
+                        panelcorrecto.SetActive(true);
                     }
                     else
                     {
                         Hide();
                         // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaIncorrecto("Actividad Patrones");
-                        GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
+                        // GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
                         RespuestaFinalIncorrecta();
+                        ulearnCoins.Ganar_UlearnCoins(100);
+                        panelincorrecto.SetActive(false);
                         print("incorrecto");
                     }
                     aux++;
@@ -492,16 +513,20 @@ public class Patron : MonoBehaviour
                     if (total == 4)
                     {
                         Hide();
-                        GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(panelrecompensa, panelcorrecto);
+                        // GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(panelrecompensa, panelcorrecto);
                         // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaCorrecto("Actividad Patrones");
                         RespuestaFinalCorrecta();
+                        ulearnCoins.Ganar_UlearnCoins(500);
+                        panelcorrecto.SetActive(true);
                     }
                     else
                     {
                         Hide();
                         // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaIncorrecto("Actividad Patrones");
-                        GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
+                        // GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
                         RespuestaFinalIncorrecta();
+                        ulearnCoins.Ganar_UlearnCoins(100);
+                        panelincorrecto.SetActive(false);
                         print("incorrecto");
                     }
                     aux++;
@@ -513,7 +538,7 @@ public class Patron : MonoBehaviour
 
     public void RespuestaFinalCorrecta(){
         Respuesta respuestacorrecta = new Respuesta();
-        respuestacorrecta.id_per = 202101;
+        respuestacorrecta.id_per = 202102;
         respuestacorrecta.id_user = int.Parse(Conexiones.id_user);
         respuestacorrecta.id_reim = 500;
         respuestacorrecta.id_actividad = 3007;
@@ -524,7 +549,7 @@ public class Patron : MonoBehaviour
         respuestacorrecta.Eje_Y = gameObject.transform.position.y;
         respuestacorrecta.Eje_Z = 0;
         respuestacorrecta.correcta = 1;
-        respuestacorrecta.resultado = "Correcto";
+        respuestacorrecta.resultado = "Patron Correcto";
         respuestacorrecta.Tipo_Registro = 0;
         StartCoroutine(PostAddPatrones(respuestacorrecta));
     }
@@ -548,7 +573,7 @@ public class Patron : MonoBehaviour
     }
     public IEnumerator PostAddPatrones(Respuesta respueston)
     {
-        string urlAPI = "http://localhost:3002/api/alumno_respuesta/add";
+        string urlAPI = cambiarApiServidor.URL + "/alumno_respuesta/add"; //"http://localhost:3002/api/alumno_respuesta/add";
         var jsonData = JsonUtility.ToJson(respueston);
         //Debug.Log(jsonData);
 

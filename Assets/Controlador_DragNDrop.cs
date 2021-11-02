@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class Controlador_DragNDrop : MonoBehaviour
 {
@@ -10,13 +11,18 @@ public class Controlador_DragNDrop : MonoBehaviour
     public Text[] Digitos;
     public static GameObject a, b, c, d;
     public GameObject[] Animales, Ocultar;
-    public GameObject Panel_recompensa, Panel_correcto, Panel_incorrecto, Botonvolver, Botonpausa;
+    public GameObject Panel_correcto, Panel_incorrecto, Botonvolver, Botonpausa, TextResult1, TextResult2;
+    public GameObject TiendaUlearnet;
+    public UlearnCoins ulearnCoins;
     public int x, i, y;
     public Text Respuesta1, Respuesta2;
     private int numero1, numero2, numero3, numero4, operador1, operador2, aux = 0;
     public static int respuesta1, respuesta2;
     public string Resp1, Resp2;
     public int numResp1, numResp2;
+    private int cont;
+    private int elemento1;
+    private int elemento2;
     public string[] tagsToDisable =
             {
                      "Caracol",
@@ -27,6 +33,7 @@ public class Controlador_DragNDrop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cont = 0;
         for (i = 0; i < Operaciones.Length; i++)
         {
             x = Random.Range(0, 2);
@@ -125,10 +132,12 @@ public class Controlador_DragNDrop : MonoBehaviour
                 if (i == 0)
                 {
                     respuesta1 = numero1 - numero2;
+                    TextResult1.GetComponent<Text>().text = numero1 + " - " + numero2 + " = " + respuesta1;
                 }
                 if (i == 1)
                 {
                     respuesta2 = numero3 - numero4;
+                    TextResult2.GetComponent<Text>().text = numero3 + " - " + numero4 + " = " + respuesta2;
                 }
             }
             if (Operaciones[i].text == "+")
@@ -136,15 +145,40 @@ public class Controlador_DragNDrop : MonoBehaviour
                 if (i == 0)
                 {
                     respuesta1 = numero1 + numero2;
+                    TextResult1.GetComponent<Text>().text = numero1 + " + " + numero2 + " = " + respuesta1;
                 }
                 if (i == 1)
                 {
                     respuesta2 = numero3 + numero4;
+                    TextResult2.GetComponent<Text>().text = numero3 + " + " + numero4 + " = " + respuesta2;
                 }
             }
         }
+
         print(respuesta1);
         print(respuesta2);
+        Debug.Log("este es el A : " + a.name);
+        if (a.name == "Ammonite_prefab(Clone)"){
+            elemento1 = 3064;
+        }else if (a.name == "Sea_urchin_prefab(Clone)"){
+            elemento1 = 3062;
+        }else if (a.name == "Crab_prefab(Clone)"){
+            elemento1 = 3063;
+        }else if (a.name == "Starfish_v1_prefab (1)(Clone)"){
+            elemento1 = 3061;
+            Debug.Log("Elemento1 estrella");
+        }
+        Debug.Log("Este es el C : " + c.name);
+        if (c.name == "Ammonite_prefab(Clone)"){
+            elemento2 = 3064;
+        }else if (c.name == "Sea_urchin_prefab(Clone)"){
+            elemento2 = 3062;
+        }else if (c.name == "Crab_prefab(Clone)"){
+            elemento2 = 3063;
+        }else if (c.name == "Starfish_v1_prefab (1)(Clone)"){
+            elemento2 = 3061;
+            Debug.Log("Elemento2 estrella");
+        }
     }
 
     // Update is called once per frame
@@ -164,7 +198,7 @@ public class Controlador_DragNDrop : MonoBehaviour
             //int numResp2 = int.Parse(Resp2);
 
             //if (Piezas_DragAndDrop.final == 2 && aux == 0)
-            if ( Respuesta1.text== respuesta1.ToString() &&  Respuesta2.text== respuesta2.ToString() && aux==0)
+            if ( Respuesta1.text == respuesta1.ToString() &&  Respuesta2.text == respuesta2.ToString() && aux==0)
         {
             GameObject.Find("Shark").SetActive(false);
 
@@ -199,18 +233,136 @@ public class Controlador_DragNDrop : MonoBehaviour
             {
                 go.SetActive(false);
             }
-            GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaCorrecto(SceneManager.GetActiveScene().name);
-            GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(Panel_recompensa, Panel_correcto);
+            // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaCorrecto(SceneManager.GetActiveScene().name);
+            // GameObject.Find("Animales").GetComponent<Recompensas>().Recompensa(Panel_recompensa, Panel_correcto);
+            Panel_correcto.SetActive(true);
+            TiendaUlearnet.SetActive(true);
+            ulearnCoins.Ganar_UlearnCoins(500);
+            RespuestaFinalCorrecta(elemento1);
+            Debug.Log("Se registra el elemento1 final");
+            RespuestaFinalCorrecta(elemento2);
+            Debug.Log("Se registra el elemento2 final");
+            
             aux += 1;
             //Piezas_DragAndDrop.final = 0;
         }
-        else if (numResp1 > respuesta1 || numResp2 > respuesta2)
+        else if (numResp1 > respuesta1 && cont == 0 || numResp2 > respuesta2 && cont == 0)
         {
+
+            GameObject.Find("Shark").SetActive(false);
+            GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag("Ocultar");
+            GameObject[] gameObjectArray2 = GameObject.FindGameObjectsWithTag("Pieza");
+            GameObject[] gameObjectArray3 = GameObject.FindGameObjectsWithTag("Cangrejo");
+            GameObject[] gameObjectArray4 = GameObject.FindGameObjectsWithTag("Estrella");
+            GameObject[] gameObjectArray5 = GameObject.FindGameObjectsWithTag("Caracol");
+            GameObject[] gameObjectArray6 = GameObject.FindGameObjectsWithTag("Erizo");
+            // foreach (GameObject go in gameObjectArray)
+            // {
+            //     go.SetActive(false);
+            // }
+            // foreach (GameObject go in gameObjectArray2)
+            // {
+            //     go.SetActive(false);
+            // }
+            foreach (GameObject go in gameObjectArray3)
+            {
+                go.SetActive(false);
+            }
+            foreach (GameObject go in gameObjectArray4)
+            {
+                go.SetActive(false);
+            }
+            foreach (GameObject go in gameObjectArray5)
+            {
+                go.SetActive(false);
+            }
+            foreach (GameObject go in gameObjectArray6)
+            {
+                go.SetActive(false);
+            }
             //Piezas_DragAndDrop.final = 0;
             Botonvolver.SetActive(false);
             Botonpausa.SetActive(false);
-            GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(Panel_incorrecto);
-            GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaIncorrecto(SceneManager.GetActiveScene().name);
+            // GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(Panel_incorrecto);
+            // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaIncorrecto(SceneManager.GetActiveScene().name);
+            Panel_incorrecto.SetActive(true);
+            TiendaUlearnet.SetActive(true);
+            ulearnCoins.Ganar_UlearnCoins(250);
+            cont = cont + 1;
+            Debug.Log(cont);
+            RespuestaFinalIncorrecto(elemento1);
+            Debug.Log("Se registra la respuesta incorrecta 1");
+            RespuestaFinalIncorrecto(elemento2);
+            Debug.Log("Se registra la respuesta incorrecta 2");
+        }
+    }
+
+    public void RespuestaFinalCorrecta(int elemento1){
+        Respuesta respuestacorrecta = new Respuesta();
+        respuestacorrecta.id_per = 202102;
+        respuestacorrecta.id_user = int.Parse(Conexiones.id_user);
+        respuestacorrecta.id_reim = 500;
+        respuestacorrecta.id_actividad = 3005;
+        respuestacorrecta.id_elemento = elemento1;
+        System.DateTime ahora = System.DateTime.Now;
+        respuestacorrecta.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
+        respuestacorrecta.Eje_X = gameObject.transform.position.x;
+        respuestacorrecta.Eje_Y = gameObject.transform.position.y;
+        respuestacorrecta.Eje_Z = 0;
+        respuestacorrecta.correcta = 1;
+        respuestacorrecta.resultado = "Calculo correcto";
+        respuestacorrecta.Tipo_Registro = 0;
+        StartCoroutine(PostAddRespuestaDrag(respuestacorrecta));
+    }
+    public void RespuestaFinalIncorrecto(int elemento1){
+        Respuesta respuestacorrecta = new Respuesta();
+        respuestacorrecta.id_per = 202102;
+        respuestacorrecta.id_user = int.Parse(Conexiones.id_user);
+        respuestacorrecta.id_reim = 500;
+        respuestacorrecta.id_actividad = 3005;
+        respuestacorrecta.id_elemento = elemento1;
+        System.DateTime ahora = System.DateTime.Now;
+        respuestacorrecta.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
+        respuestacorrecta.Eje_X = gameObject.transform.position.x;
+        respuestacorrecta.Eje_Y = gameObject.transform.position.y;
+        respuestacorrecta.Eje_Z = 0;
+        respuestacorrecta.correcta = 0;
+        respuestacorrecta.resultado = "Calculo incorrecto";
+        respuestacorrecta.Tipo_Registro = 0;
+        StartCoroutine(PostAddRespuestaDrag(respuestacorrecta));
+    }
+
+
+    public IEnumerator PostAddRespuestaDrag(Respuesta respueston)
+    {
+        string urlAPI = cambiarApiServidor.URL + "/alumno_respuesta/add"; //"http://localhost:3002/api/alumno_respuesta/add";
+        var jsonData = JsonUtility.ToJson(respueston);
+        //Debug.Log(jsonData);
+
+        using (UnityWebRequest www = UnityWebRequest.Post(urlAPI, jsonData))
+        {
+            www.SetRequestHeader("content-type", "application/json");
+            www.uploadHandler.contentType = "application/json";
+            www.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(jsonData));
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError)
+            {
+                Debug.Log(www.error);
+                Debug.Log("Error");
+            }
+            else
+            {
+                if (www.isDone)
+                {
+                    var result = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
+                    if (result != null)
+                    {
+                        //var id_txa = JsonUtility.FromJson<String>(result);
+                        //Debug.Log(id_txa);
+                    }
+                }
+            }
         }
     }
 }

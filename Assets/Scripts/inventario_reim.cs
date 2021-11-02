@@ -54,7 +54,7 @@ public class inventario_reim : MonoBehaviour
         //StartCoroutine(Get(ARA, "get_cantidad"));
     }
     public IEnumerator PostInsert_Element(inventario_reim_class a, string extend)  {
-        string urlAPI = "http://localhost:3002/api/Inventario_reim/" + extend;
+        string urlAPI = cambiarApiServidor.URL + "/Inventario_reim/" + extend; //"http://localhost:3002/api/Inventario_reim/" + extend;
         //Debug.Log("urlPI: "+urlAPI);
 
         var jsonData = JsonUtility.ToJson(a);
@@ -92,7 +92,7 @@ public class inventario_reim : MonoBehaviour
         objeto.usuario_id = int.Parse(Conexiones.id_user);
         objeto.id_elemento = id_elemento;
 
-        string urlAPI = "http://localhost:3002/api/Inventario_reim/" + extend;
+        string urlAPI = cambiarApiServidor.URL + "/Inventario_reim/" + extend;//"http://localhost:3002/api/Inventario_reim/" + extend;
 
         var jsonData = JsonUtility.ToJson(objeto);
         Debug.Log(jsonData);

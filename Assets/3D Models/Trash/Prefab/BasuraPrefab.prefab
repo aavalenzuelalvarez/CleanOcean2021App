@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 6712256634108901949}
   - component: {fileID: 6787210407005823604}
   - component: {fileID: 2533569785228824519}
+  - component: {fileID: 407768235452813399}
   m_Layer: 0
   m_Name: BasuraPrefab
   m_TagString: Untagged
@@ -79,8 +80,8 @@ MonoBehaviour:
   anEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4737258264829115158, guid: c766e92bdaf03f64ba3e077f93d0bd9d,
-          type: 3}
+      - m_Target: {fileID: 407768235452813399}
+        m_TargetAssemblyTypeName: AlumnoRespuestaActividad, Assembly-CSharp
         m_MethodName: SetElemento
         m_Mode: 5
         m_Arguments:
@@ -91,21 +92,21 @@ MonoBehaviour:
           m_StringArgument: 3041
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4737258264829115158, guid: c766e92bdaf03f64ba3e077f93d0bd9d,
-          type: 3}
-        m_MethodName: SetActividad
+      - m_Target: {fileID: 407768235452813399}
+        m_TargetAssemblyTypeName: AlumnoRespuestaActividad, Assembly-CSharp
+        m_MethodName: SetCorrecto
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4737258264829115158, guid: c766e92bdaf03f64ba3e077f93d0bd9d,
-          type: 3}
-        m_MethodName: Boton
+      - m_Target: {fileID: 407768235452813399}
+        m_TargetAssemblyTypeName: AlumnoRespuestaActividad, Assembly-CSharp
+        m_MethodName: Touchsito
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -115,8 +116,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!135 &2533569785228824519
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -130,6 +129,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.001880765
   m_Center: {x: 0, y: 0, z: 0.0087}
+--- !u!114 &407768235452813399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7745593227214260270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa97f19104554f4faba7525cf2a1f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  periodito: 202102
+  actividadsita: 3001
 --- !u!1 &8649289670863116581
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,9 +195,12 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -209,6 +225,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &1203392091363554100
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -219,7 +236,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 7236921313541846818, guid: d79d79a867390dd489a815f1cf165f90, type: 3}
