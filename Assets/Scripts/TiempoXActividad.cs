@@ -8,6 +8,7 @@ using UnityEngine.Networking;
 public class Tiempo
 {
     public int id_tiempoactividad;
+    private string tiempoide;
     public string inicio;
     public string final;
     public int causa;
@@ -74,36 +75,7 @@ public class TiempoXActividad : MonoBehaviour
         StartCoroutine(PostAdd(act_tempo));
     }
 
-    public IEnumerator PostEnd(Tiempo tiempito)
-    {
-        string urlAPI = cambiarApiServidor.URL + "/tiempoxactividad/update/" + tiempito.id_tiempoactividad.ToString();//"http://localhost:3002/api/tiempoxactividad/update/" + tiempito.id_tiempoactividad.ToString();
-        var jsonData = JsonUtility.ToJson(tiempito);
-        //Debug.Log(jsonData);
-
-        using (UnityWebRequest www = UnityWebRequest.Post(urlAPI, jsonData))
-        {
-            www.SetRequestHeader("content-type", "application/json");
-            www.uploadHandler.contentType = "application/json";
-            www.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(jsonData));
-            yield return www.SendWebRequest();
-            if (www.isNetworkError)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                if (www.isDone)
-                {
-                    var result = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
-                    if (result != null)
-                    {
-                        Debug.Log(result);
-                        
-                    }
-                }
-            }
-        }
-    }
+    
 
     public void TerminoActividad()
     {
@@ -164,6 +136,82 @@ public class TiempoXActividad : MonoBehaviour
         act_tempo1.reim_id = 500;
         act_tempo1.usuario_id = int.Parse(Conexiones.id_user);
         StartCoroutine(PostEnd(act_tempo1));
+    }
+
+    public IEnumerator PostEnd(Tiempo tiempito)
+    {
+        string urlAPI = cambiarApiServidor.URL + "/tiempoxactividad/update/" + tiempito.id_tiempoactividad.ToString();//"http://localhost:3002/api/tiempoxactividad/update/" + tiempito.id_tiempoactividad.ToString();
+        var jsonData = JsonUtility.ToJson(tiempito);
+        //Debug.Log(jsonData);
+
+        using (UnityWebRequest www = UnityWebRequest.Post(urlAPI, jsonData))
+        {
+            www.SetRequestHeader("content-type", "application/json");
+            www.uploadHandler.contentType = "application/json";
+            www.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(jsonData));
+            yield return www.SendWebRequest();
+            if (www.isNetworkError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                if (www.isDone)
+                {
+                    var result = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
+                    if (result != null)
+                    {
+                        Debug.Log(result);
+                        
+                    }
+                }
+            }
+        }
+    }
+
+    void OnApplicationQuit() {
+        Tiempo tiP;
+        tiP = new Tiempo();
+        tiP.inicio = inicio_act;
+        tiP.final = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+        tiP.causa = 2;
+        tiP.usuario_id = int.Parse(Conexiones.id_user);
+        tiP.reim_id = 500;
+        tiP.actividad_id = actividad;
+        StartCoroutine(PostSalir(tiP, $"update/{id_tiempoact}"));
+        Debug.Log("Se jue");
+    }
+
+    public IEnumerator PostSalir(Tiempo ti, string extend) {
+        string urlAPI = cambiarApiServidor.URL+"/tiempoxactividad/" + extend;
+
+        var jsonData = JsonUtility.ToJson(ti);
+        using (UnityWebRequest www = UnityWebRequest.Post(urlAPI, jsonData)) {
+            www.SetRequestHeader("content-type", "application/json");
+            www.uploadHandler.contentType = "application/json";
+            www.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(jsonData));
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError) {
+                Debug.Log(www.error);
+                Debug.Log("error!");
+            }
+            else {
+                if (www.isDone){
+
+                    Debug.Log("hola1");
+                    var result = System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
+
+                    Debug.Log(result);
+                    if (result != null) {
+                        if(extend == "add")
+                        {
+                            id_tiempoact = result; 
+                        }
+                    }
+                }
+            }
+        }
     }
 
     void Start()

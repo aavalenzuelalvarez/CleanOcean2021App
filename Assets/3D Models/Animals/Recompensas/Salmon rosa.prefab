@@ -44,9 +44,12 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -105,9 +108,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ac8e80303f0b95d4798f26dd6bbde129, type: 3}
 --- !u!114 &3935192636304316581
 MonoBehaviour:
@@ -126,6 +129,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4737258264829115158, guid: c766e92bdaf03f64ba3e077f93d0bd9d,
           type: 3}
+        m_TargetAssemblyTypeName: 
         m_MethodName: SetElemento
         m_Mode: 5
         m_Arguments:
@@ -138,6 +142,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4737258264829115158, guid: c766e92bdaf03f64ba3e077f93d0bd9d,
           type: 3}
+        m_TargetAssemblyTypeName: 
         m_MethodName: SetActividad
         m_Mode: 5
         m_Arguments:
@@ -150,6 +155,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4737258264829115158, guid: c766e92bdaf03f64ba3e077f93d0bd9d,
           type: 3}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Boton
         m_Mode: 1
         m_Arguments:
@@ -160,8 +166,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &7814225472011211681
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +365,7 @@ GameObject:
   - component: {fileID: 1217710806705473599}
   - component: {fileID: 5517193132068097215}
   - component: {fileID: 5517193132068097212}
+  - component: {fileID: -4551068471299726035}
   m_Layer: 0
   m_Name: Salmon rosa
   m_TagString: Untagged
@@ -446,6 +451,18 @@ MonoBehaviour:
   speed: 0
   turnspeed: 10
   smoothTime: 5
+--- !u!114 &-4551068471299726035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7814545244010108629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863b5f58ee4951e4c9907ce23d8363d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7814572719088144459
 GameObject:
   m_ObjectHideFlags: 0

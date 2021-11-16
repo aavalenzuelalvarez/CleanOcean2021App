@@ -271,7 +271,7 @@ MonoBehaviour:
   TextProgreso: {fileID: 621029601}
   TextCargando: {fileID: 277298328}
   currentAmount: 0
-  speed: 10
+  speed: 20
   nombre_escena: Actividad Patrones
 --- !u!114 &272861894
 MonoBehaviour:

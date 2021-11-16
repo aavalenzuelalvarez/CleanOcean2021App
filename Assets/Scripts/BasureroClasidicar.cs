@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class BasureroClasidicar : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class BasureroClasidicar : MonoBehaviour
     public UlearnCoins ulearnCoins;
     public int periodito = 202102;
     public int elementito;
+    private int ActividadSinMul;
     public static int correctita;
     public static float ejesitox;
     public static float ejesitoy;
@@ -20,7 +22,11 @@ public class BasureroClasidicar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if(SceneManager.GetActiveScene().name == "Actividad ReciclarOnline"){
+            ActividadSinMul = 3010;
+        }else{
+            ActividadSinMul = 3009;
+        }
     }
 
     // Update is called once per frame
@@ -74,7 +80,7 @@ public class BasureroClasidicar : MonoBehaviour
         RespuestaBasura.id_per = periodito;
         RespuestaBasura.id_user = int.Parse(Conexiones.id_user);
         RespuestaBasura.id_reim = 500;
-        RespuestaBasura.id_actividad = 3009;
+        RespuestaBasura.id_actividad = ActividadSinMul;
         RespuestaBasura.id_elemento = elementito;
         DateTime ahora = DateTime.Now;
         RespuestaBasura.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
@@ -93,7 +99,7 @@ public class BasureroClasidicar : MonoBehaviour
         RespuestaBasura.id_per = periodito;
         RespuestaBasura.id_user = int.Parse(Conexiones.id_user);
         RespuestaBasura.id_reim = 500;
-        RespuestaBasura.id_actividad = 3009;
+        RespuestaBasura.id_actividad = ActividadSinMul;
         RespuestaBasura.id_elemento = elementito;
         DateTime ahora = DateTime.Now;
         RespuestaBasura.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");

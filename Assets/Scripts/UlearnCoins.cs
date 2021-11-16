@@ -30,22 +30,22 @@ public class UlearnCoins : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    public void ObtenerAnimal()
-    {
-        if(ulearnCoins_obtenidos - 10 < 0)
-        {
-            obj.SetActive(true);
-            Debug.Log("No tienes Suficientes puntos");
-        }else
-        {
-            ulearnCoins_obtenidos = ulearnCoins_obtenidos - 10;
-            insertElement(ulearnCoins_obtenidos,600235);
-            // cargarNivel.CargarNivel(3);
+    // public void ObtenerAnimal()
+    // {
+    //     if(ulearnCoins_obtenidos - 10 < 0)
+    //     {
+    //         obj.SetActive(true);
+    //         Debug.Log("No tienes Suficientes puntos");
+    //     }else
+    //     {
+    //         ulearnCoins_obtenidos = ulearnCoins_obtenidos - 10;
+    //         insertElement(ulearnCoins_obtenidos,600235);
+    //         // cargarNivel.CargarNivel(3);
             
-        }
-    }
+    //     }
+    // }
 
     public void get_UlearnCoins()
     {

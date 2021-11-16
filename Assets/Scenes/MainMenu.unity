@@ -410,7 +410,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2093872733}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa97f19104554f4faba7525cf2a1f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  periodito: 202101
+  periodito: 202102
   actividadsita: 2
 --- !u!1 &219838110
 GameObject:
@@ -1154,7 +1154,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2093872733}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1513,7 +1513,7 @@ RectTransform:
   - {fileID: 831847009}
   - {fileID: 1065656136}
   m_Father: {fileID: 2093872733}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1759,7 +1759,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2093872733}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -2902,7 +2902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa97f19104554f4faba7525cf2a1f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  periodito: 202101
+  periodito: 202102
   actividadsita: 2
 --- !u!1 &680117878
 GameObject:
@@ -3126,7 +3126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa97f19104554f4faba7525cf2a1f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  periodito: 202101
+  periodito: 202102
   actividadsita: 2
 --- !u!1 &705465511
 GameObject:
@@ -3161,7 +3161,7 @@ RectTransform:
   m_Children:
   - {fileID: 1908354351}
   m_Father: {fileID: 2093872733}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3800,7 +3800,7 @@ RectTransform:
   - {fileID: 1902598930}
   - {fileID: 2006796350}
   m_Father: {fileID: 2093872733}
-  m_RootOrder: 9
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3959,7 +3959,7 @@ RectTransform:
   - {fileID: 1283139983}
   - {fileID: 1205281315}
   m_Father: {fileID: 2093872733}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4240,7 +4240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa97f19104554f4faba7525cf2a1f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  periodito: 202101
+  periodito: 202102
   actividadsita: 2
 --- !u!1 &1048892349
 GameObject:
@@ -5094,7 +5094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa97f19104554f4faba7525cf2a1f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  periodito: 202101
+  periodito: 202102
   actividadsita: 2
 --- !u!1 &1435271904
 GameObject:
@@ -5480,7 +5480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa97f19104554f4faba7525cf2a1f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  periodito: 202101
+  periodito: 202102
   actividadsita: 2
 --- !u!1 &1489668214
 GameObject:
@@ -5909,7 +5909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa97f19104554f4faba7525cf2a1f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  periodito: 202101
+  periodito: 202102
   actividadsita: 2
 --- !u!1 &1524106215
 GameObject:
@@ -6185,7 +6185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa97f19104554f4faba7525cf2a1f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  periodito: 202101
+  periodito: 202102
   actividadsita: 2
 --- !u!1 &1561916452
 GameObject:
@@ -6550,7 +6550,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2093872733}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -6712,7 +6712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa97f19104554f4faba7525cf2a1f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  periodito: 202101
+  periodito: 202102
   actividadsita: 2
 --- !u!1 &1855008908
 GameObject:
@@ -6747,7 +6747,7 @@ RectTransform:
   - {fileID: 219838111}
   - {fileID: 1934317031}
   m_Father: {fileID: 2093872733}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7107,7 +7107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa97f19104554f4faba7525cf2a1f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  periodito: 202101
+  periodito: 202102
   actividadsita: 2
 --- !u!1 &1901218526
 GameObject:
@@ -7222,8 +7222,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -7.2}
+  m_SizeDelta: {x: 172.2, y: 73.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1902598931
 MonoBehaviour:
@@ -7246,12 +7246,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8cd3d2330fbdf4b48ac7a9b9ec63798f, type: 3}
-    m_FontSize: 22
+    m_Font: {fileID: 12800000, guid: 4b5665a980ed7784689001f6585f7b33, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 30
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -7527,8 +7527,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 54}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 50.2}
+  m_SizeDelta: {x: 169.35, y: 38.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2006796351
 MonoBehaviour:
@@ -7551,12 +7551,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8cd3d2330fbdf4b48ac7a9b9ec63798f, type: 3}
-    m_FontSize: 24
+    m_Font: {fileID: 12800000, guid: 4b5665a980ed7784689001f6585f7b33, type: 3}
+    m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 28
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -7947,7 +7947,6 @@ RectTransform:
   - {fileID: 1558461181}
   - {fileID: 1401668147}
   - {fileID: 1435271905}
-  - {fileID: 884927715}
   - {fileID: 341934229}
   - {fileID: 1839163674}
   - {fileID: 211752180}
@@ -7956,6 +7955,7 @@ RectTransform:
   - {fileID: 1855008909}
   - {fileID: 1006712370}
   - {fileID: 362103984}
+  - {fileID: 884927715}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

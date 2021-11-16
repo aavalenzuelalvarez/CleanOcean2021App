@@ -38,7 +38,7 @@ public class ControllerTesoro : MonoBehaviour
                 camino1.SetActive(true);
                 Bvolcan.interactable = true;
                 Bfaro.interactable = false;
-                RegistraSaltoGanador(ShakeDemo.pasos);
+                RegistraSaltoGanador1(ShakeDemo.pasos);
                 Panel.SetActive(false);
                 ShakeDemo.pasos = 0;
             }
@@ -52,7 +52,7 @@ public class ControllerTesoro : MonoBehaviour
                 aux += 1;
                 Bcalavera.interactable = true;
                 Bvolcan.interactable = false;
-                RegistraSaltoGanador(ShakeDemo.pasos);
+                RegistraSaltoGanador2(ShakeDemo.pasos);
                 Panel.SetActive(false);
                 ShakeDemo.pasos = 0;
             }
@@ -65,7 +65,7 @@ public class ControllerTesoro : MonoBehaviour
                 Btesoro.interactable = true;
                 shakedemo.ResetShakeCount();
                 camino2.SetActive(true);
-                RegistraSaltoGanador(ShakeDemo.pasos);
+                RegistraSaltoGanador3(ShakeDemo.pasos);
                 Panel.SetActive(false);
                 aux += 1;
             }
@@ -160,7 +160,7 @@ public class ControllerTesoro : MonoBehaviour
         }
     }
 
-	private void RegistraSaltoGanador(int pasos){
+	private void RegistraSaltoGanador1(int pasos){
         Respuesta RespuestaBasura;
         RespuestaBasura = new Respuesta();
         RespuestaBasura.id_per = periodito;
@@ -175,6 +175,42 @@ public class ControllerTesoro : MonoBehaviour
         RespuestaBasura.Eje_Z = 0;
         RespuestaBasura.correcta = 1;
         RespuestaBasura.resultado = "Primera instruccion correcta en el salto nro : " + pasos;
+        RespuestaBasura.Tipo_Registro = 0;
+        StartCoroutine(PostAdd(RespuestaBasura));
+    }
+    private void RegistraSaltoGanador2(int pasos){
+        Respuesta RespuestaBasura;
+        RespuestaBasura = new Respuesta();
+        RespuestaBasura.id_per = periodito;
+        RespuestaBasura.id_user = int.Parse(Conexiones.id_user);
+        RespuestaBasura.id_reim = 500;
+        RespuestaBasura.id_actividad = 3004;
+        RespuestaBasura.id_elemento = 3096;
+        DateTime ahora = DateTime.Now;
+        RespuestaBasura.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
+        RespuestaBasura.Eje_X = 0;
+        RespuestaBasura.Eje_Y = 0;
+        RespuestaBasura.Eje_Z = 0;
+        RespuestaBasura.correcta = 1;
+        RespuestaBasura.resultado = "Segunda instruccion correcta en el salto nro : " + pasos;
+        RespuestaBasura.Tipo_Registro = 0;
+        StartCoroutine(PostAdd(RespuestaBasura));
+    }
+    private void RegistraSaltoGanador3(int pasos){
+        Respuesta RespuestaBasura;
+        RespuestaBasura = new Respuesta();
+        RespuestaBasura.id_per = periodito;
+        RespuestaBasura.id_user = int.Parse(Conexiones.id_user);
+        RespuestaBasura.id_reim = 500;
+        RespuestaBasura.id_actividad = 3004;
+        RespuestaBasura.id_elemento = 3096;
+        DateTime ahora = DateTime.Now;
+        RespuestaBasura.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
+        RespuestaBasura.Eje_X = 0;
+        RespuestaBasura.Eje_Y = 0;
+        RespuestaBasura.Eje_Z = 0;
+        RespuestaBasura.correcta = 1;
+        RespuestaBasura.resultado = "Tercera instruccion correcta en el salto nro : " + pasos;
         RespuestaBasura.Tipo_Registro = 0;
         StartCoroutine(PostAdd(RespuestaBasura));
     }

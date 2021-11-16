@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-
+using UnityEngine.SceneManagement;
 public class ReciclarDesaparecer : MonoBehaviour
 {
     public bool altura = false;
@@ -12,6 +12,7 @@ public class ReciclarDesaparecer : MonoBehaviour
     public int i;
     public int elementobasura;
     public int periodito = 202102;
+    private int ActividadSinMul;
     private int x;
     public static string TipoBasura = "";
     private float ejesitox;
@@ -21,6 +22,12 @@ public class ReciclarDesaparecer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Debug.Log(SceneManager.GetActiveScene().name);
+        if(SceneManager.GetActiveScene().name == "Actividad ReciclarOnline"){
+            ActividadSinMul = 3010;
+        }else{
+            ActividadSinMul = 3009;
+        }
         Debug.Log(TipoBasura);
     }
 
@@ -34,9 +41,9 @@ public class ReciclarDesaparecer : MonoBehaviour
             ejesitoy = gameObject.transform.position.y;
             ejesitoz = gameObject.transform.position.z;
             RegistraBasuraPescada();
+            transform.position = new Vector3(2, 8, 60);
             MostrarPanelPregunta();
             // this.gameObject.SetActive(true);
-            transform.position = new Vector3(2, 8, 60);
             Debug.Log(transform.position.x);
             Debug.Log(transform.position.y);
             TipoBasura = this.tag;
@@ -87,7 +94,7 @@ public class ReciclarDesaparecer : MonoBehaviour
         BasuraPescada.id_per = periodito;
         BasuraPescada.id_user = int.Parse(Conexiones.id_user);
         BasuraPescada.id_reim = 500;
-        BasuraPescada.id_actividad = 3009;
+        BasuraPescada.id_actividad = ActividadSinMul;
         BasuraPescada.id_elemento = elementobasura;
         DateTime ahora = DateTime.Now;
         BasuraPescada.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");

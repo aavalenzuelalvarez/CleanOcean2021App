@@ -23,7 +23,11 @@ public class BillboardLaberinto : MonoBehaviour
             transform.rotation = theCam.transform.rotation;
         }
         
-
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+        if(this.gameObject.name == "Botella De Vidrio"){
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 50);
+        }else{
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+        }
+        
     }
 }

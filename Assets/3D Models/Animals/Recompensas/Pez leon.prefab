@@ -137,9 +137,12 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -214,9 +217,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e788a4b516428a34eb565659c7a516c6, type: 3}
 --- !u!114 &1899773102683626789
 MonoBehaviour:
@@ -235,6 +238,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4737258264829115158, guid: c766e92bdaf03f64ba3e077f93d0bd9d,
           type: 3}
+        m_TargetAssemblyTypeName: 
         m_MethodName: SetElemento
         m_Mode: 5
         m_Arguments:
@@ -247,6 +251,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4737258264829115158, guid: c766e92bdaf03f64ba3e077f93d0bd9d,
           type: 3}
+        m_TargetAssemblyTypeName: 
         m_MethodName: SetActividad
         m_Mode: 5
         m_Arguments:
@@ -259,6 +264,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4737258264829115158, guid: c766e92bdaf03f64ba3e077f93d0bd9d,
           type: 3}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Boton
         m_Mode: 1
         m_Arguments:
@@ -269,8 +275,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &7259988166136419453
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +596,7 @@ GameObject:
   - component: {fileID: 502172953633512390}
   - component: {fileID: 4888835636314630000}
   - component: {fileID: 4888835636314630013}
+  - component: {fileID: -3756125668644437611}
   m_Layer: 0
   m_Name: Pez leon
   m_TagString: Untagged
@@ -684,6 +689,18 @@ MonoBehaviour:
   speed: 0
   turnspeed: 10
   smoothTime: 5
+--- !u!114 &-3756125668644437611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260516105583552487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863b5f58ee4951e4c9907ce23d8363d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7260658140265541171
 GameObject:
   m_ObjectHideFlags: 0

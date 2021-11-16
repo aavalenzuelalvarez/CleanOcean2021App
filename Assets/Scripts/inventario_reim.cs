@@ -26,8 +26,8 @@ public class inventario_reim : MonoBehaviour
     public int id_elemento;
     public int cantidad;
     Image imagen;
-    public static float actual_comida;
-    public static float actual_agua;
+    // public static float actual_comida;
+    // public static float actual_agua;
     float tiempo;
 
     // bool get_conseguido;

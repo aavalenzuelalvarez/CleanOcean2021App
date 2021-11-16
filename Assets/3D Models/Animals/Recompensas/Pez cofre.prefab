@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 554820129881536713}
   - component: {fileID: 4410629611653205591}
   - component: {fileID: 4410629611653205576}
+  - component: {fileID: -6187890896319285638}
   m_Layer: 0
   m_Name: Pez cofre
   m_TagString: Untagged
@@ -470,6 +471,18 @@ MonoBehaviour:
   speed: 0
   turnspeed: 10
   smoothTime: 5
+--- !u!114 &-6187890896319285638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8277129881872121408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863b5f58ee4951e4c9907ce23d8363d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8277163119482515206
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,9 +527,12 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -585,9 +601,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: aff3637d4475ac94ba7a5750f097a54f, type: 3}
 --- !u!114 &7408241087824204368
 MonoBehaviour:
@@ -606,6 +622,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4737258264829115158, guid: c766e92bdaf03f64ba3e077f93d0bd9d,
           type: 3}
+        m_TargetAssemblyTypeName: 
         m_MethodName: SetElemento
         m_Mode: 5
         m_Arguments:
@@ -618,6 +635,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4737258264829115158, guid: c766e92bdaf03f64ba3e077f93d0bd9d,
           type: 3}
+        m_TargetAssemblyTypeName: 
         m_MethodName: SetActividad
         m_Mode: 5
         m_Arguments:
@@ -630,6 +648,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4737258264829115158, guid: c766e92bdaf03f64ba3e077f93d0bd9d,
           type: 3}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Boton
         m_Mode: 1
         m_Arguments:
@@ -640,8 +659,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &8277214820242118598
 GameObject:
   m_ObjectHideFlags: 0

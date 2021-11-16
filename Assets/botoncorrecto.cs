@@ -12,7 +12,7 @@ public class botoncorrecto : MonoBehaviour
     public Button btn;
     public GameObject correcto, incorrecto,pregunta,respuestas;
     public int aux2;
-    private int periodito;
+    public int periodito;
     private float ejesitox, ejesitoy, ejesitoz;
     public UlearnCoins ulearnCoins;
     // Start is called before the first frame update

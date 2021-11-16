@@ -32,6 +32,4 @@ public class PhotonTestConnection : MonoBehaviourPunCallbacks
     {
         print("Te uniste al lobby");
     }
-
-    
 }

@@ -1667,6 +1667,11 @@ PrefabInstance:
       propertyPath: anEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: 3006
       objectReference: {fileID: 0}
+    - target: {fileID: 6952400307445138809, guid: caab9066cd6fcae4bbac566927e06e5d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6972044119142681083, guid: caab9066cd6fcae4bbac566927e06e5d,
         type: 3}
       propertyPath: m_Enabled
@@ -1677,10 +1682,25 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4ffe7d3933637434797dc256336c0a66, type: 2}
+    - target: {fileID: 7030160249228931601, guid: caab9066cd6fcae4bbac566927e06e5d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7030175930460408479, guid: caab9066cd6fcae4bbac566927e06e5d,
         type: 3}
       propertyPath: m_Name
       value: Shark
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031588208528649279, guid: caab9066cd6fcae4bbac566927e06e5d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032188103950133831, guid: caab9066cd6fcae4bbac566927e06e5d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7032210320055576219, guid: caab9066cd6fcae4bbac566927e06e5d,
         type: 3}
@@ -3621,7 +3641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &702727405
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3635,11 +3655,11 @@ RectTransform:
   m_Children:
   - {fileID: 1543815182}
   m_Father: {fileID: 8459046439067197558}
-  m_RootOrder: 16
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 44.900024, y: -42.600006}
+  m_AnchoredPosition: {x: 39.100006, y: -126.4}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &702727406
@@ -7305,7 +7325,7 @@ RectTransform:
   - {fileID: 620796973}
   - {fileID: 186494309}
   m_Father: {fileID: 8459046439067197558}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8826,6 +8846,7 @@ GameObject:
   - component: {fileID: 1902806737}
   - component: {fileID: 1902806738}
   - component: {fileID: 1902806739}
+  - component: {fileID: 1902806740}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8939,6 +8960,38 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &1902806740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902806733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1908941987
 GameObject:
   m_ObjectHideFlags: 0
@@ -9505,7 +9558,7 @@ RectTransform:
   - {fileID: 1954913315}
   - {fileID: 162208713}
   m_Father: {fileID: 8459046439067197558}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10491,9 +10544,9 @@ RectTransform:
   - {fileID: 1242779125}
   - {fileID: 438893832}
   - {fileID: 698726664}
-  - {fileID: 702727405}
   - {fileID: 2044990319}
   - {fileID: 1356209237}
+  - {fileID: 702727405}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

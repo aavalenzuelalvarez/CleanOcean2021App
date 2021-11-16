@@ -308,7 +308,7 @@ public class Patron : MonoBehaviour
                         // GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
                         RespuestaFinalIncorrecta();
                         ulearnCoins.Ganar_UlearnCoins(100);
-                        panelincorrecto.SetActive(false);
+                        panelincorrecto.SetActive(true);
                         print("incorrecto");
                     }
                     aux++;
@@ -355,7 +355,7 @@ public class Patron : MonoBehaviour
                         // GameObject.Find("Conexiones").GetComponent<Conexiones>().AlmacenaIncorrecto("Actividad Patrones");
                         RespuestaFinalIncorrecta();
                         ulearnCoins.Ganar_UlearnCoins(100);
-                        panelincorrecto.SetActive(false);
+                        panelincorrecto.SetActive(true);
                     }
                     aux++;
                 }
@@ -396,7 +396,7 @@ public class Patron : MonoBehaviour
                         // GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
                         RespuestaFinalIncorrecta();
                         ulearnCoins.Ganar_UlearnCoins(100);
-                        panelincorrecto.SetActive(false);
+                        panelincorrecto.SetActive(true);
                         print("incorrecto");
                     }
                     aux++;
@@ -438,7 +438,7 @@ public class Patron : MonoBehaviour
                         // GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
                         RespuestaFinalIncorrecta();
                         ulearnCoins.Ganar_UlearnCoins(100);
-                        panelincorrecto.SetActive(false);
+                        panelincorrecto.SetActive(true);
                         print("incorrecto");
                     }
                     aux++;
@@ -484,7 +484,7 @@ public class Patron : MonoBehaviour
                         // GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
                         RespuestaFinalIncorrecta();
                         ulearnCoins.Ganar_UlearnCoins(100);
-                        panelincorrecto.SetActive(false);
+                        panelincorrecto.SetActive(true);
                         print("incorrecto");
                     }
                     aux++;
@@ -526,7 +526,7 @@ public class Patron : MonoBehaviour
                         // GameObject.Find("Animales").GetComponent<Recompensas>().Incorrecto(panelincorrecto);
                         RespuestaFinalIncorrecta();
                         ulearnCoins.Ganar_UlearnCoins(100);
-                        panelincorrecto.SetActive(false);
+                        panelincorrecto.SetActive(true);
                         print("incorrecto");
                     }
                     aux++;
