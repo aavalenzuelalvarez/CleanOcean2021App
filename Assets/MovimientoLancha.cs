@@ -19,16 +19,24 @@ public class MovimientoLancha : MonoBehaviour
     public int periodito = 202102;
     public UlearnCoins ulearnCoins;
     private string colisionsita;
+    private Rigidbody rb;
+    private bool moveleft;
+    private bool moverighto;
+    public float speedobutton = 5;
+    private float horizontalMove;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
+        moveleft = false;
+        moverighto = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        MovementPlayer();
         if (colisiones >= 20)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
@@ -60,6 +68,7 @@ public class MovimientoLancha : MonoBehaviour
     }
     void FixedUpdate()
     {
+        rb.velocity = new Vector2(horizontalMove, rb.velocity.y);
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
         if (speed < 20 && speed > 0)
         {
@@ -217,5 +226,30 @@ public class MovimientoLancha : MonoBehaviour
         RespuestaBasura.resultado = "Choque con : " + nombrecolision;
         RespuestaBasura.Tipo_Registro = 0;
         StartCoroutine(PostAdd(RespuestaBasura));
+    }
+    public void levantarizquierdant(){
+         moveleft = false;
+    }
+    public void movimientoizquierda(){
+        moveleft = true;
+        
+    }
+    public void movimientoderecha(){
+        moverighto = true;
+       
+    }
+    public void levantarDerecha(){
+        moverighto = false;
+    }
+    private void MovementPlayer(){
+        if(moveleft){
+            horizontalMove = -speedobutton;
+        }
+        else if(moverighto){
+            horizontalMove = speedobutton;
+        }
+        else{
+            horizontalMove = 0;
+        }
     }
 }

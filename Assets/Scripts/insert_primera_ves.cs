@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class get_ultima_conexion
 {
     public int usuario_id;
+    public int reim_id;
     public string datetime_termino;
 }
 
@@ -29,6 +30,7 @@ public class insert_primera_ves : MonoBehaviour
     public IEnumerator Get_primera_vez()
     {
         get_ultima_conexion objeto = new get_ultima_conexion();
+        objeto.reim_id = 500;
         objeto.usuario_id = int.Parse(Conexiones.id_user);
 
 
