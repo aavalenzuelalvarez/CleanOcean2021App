@@ -47,12 +47,12 @@ public class ControllerTesoro : MonoBehaviour
         {
             if (ShakeDemo.pasos == pasosrandom) //VOLCAN
             {
-                shakedemo.ResetShakeCount();
                 camino2.SetActive(true);
                 aux += 1;
                 Bcalavera.interactable = true;
                 Bvolcan.interactable = false;
                 RegistraSaltoGanador2(ShakeDemo.pasos);
+                shakedemo.ResetShakeCount();
                 Panel.SetActive(false);
                 ShakeDemo.pasos = 0;
             }
@@ -63,9 +63,9 @@ public class ControllerTesoro : MonoBehaviour
             {
                 Bcalavera.interactable = false;
                 Btesoro.interactable = true;
-                shakedemo.ResetShakeCount();
                 camino2.SetActive(true);
                 RegistraSaltoGanador3(ShakeDemo.pasos);
+                shakedemo.ResetShakeCount();
                 Panel.SetActive(false);
                 aux += 1;
             }

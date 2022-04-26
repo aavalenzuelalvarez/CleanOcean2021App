@@ -437,7 +437,7 @@ public class BotonesTienda : MonoBehaviour
         PezAdquirido.id_user = int.Parse(Conexiones.id_user);
         PezAdquirido.id_reim = 500;
         PezAdquirido.id_actividad = 3011;
-        PezAdquirido.id_elemento = elementitotienda;
+        PezAdquirido.id_elemento = 3098;
         DateTime ahora = DateTime.Now;
         PezAdquirido.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
         PezAdquirido.Eje_X = ejesitox;
@@ -457,14 +457,14 @@ public class BotonesTienda : MonoBehaviour
         PezNoAdquirido.id_user = int.Parse(Conexiones.id_user);
         PezNoAdquirido.id_reim = 500;
         PezNoAdquirido.id_actividad = 3011;
-        PezNoAdquirido.id_elemento = elementitotienda;
+        PezNoAdquirido.id_elemento = 3098;
         DateTime ahora = DateTime.Now;
         PezNoAdquirido.datetime_touch = ahora.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
         PezNoAdquirido.Eje_X = ejesitox;
         PezNoAdquirido.Eje_Y = ejesitoy;
         PezNoAdquirido.Eje_Z = ejesitoz;
         PezNoAdquirido.correcta = 2;
-        PezNoAdquirido.resultado = "Pez Adquirido";
+        PezNoAdquirido.resultado = "Insuficientes UlearnetCoins";
         Debug.Log(PezNoAdquirido.resultado);
         PezNoAdquirido.Tipo_Registro = 0;
         StartCoroutine(PostAdd(PezNoAdquirido));
